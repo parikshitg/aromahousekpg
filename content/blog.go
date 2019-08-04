@@ -3,13 +3,12 @@ package content
 import (
 	"context"
 	"fmt"
-	"os"
 	"strings"
 	"time"
 
 	"git.urantiatech.com/cloudcms/cloudcms/api"
 	"git.urantiatech.com/cloudcms/cloudcms/item"
-	s "git.urantiatech.com/cloudcms/cloudcms/service"
+	s "git.urantiatech.com/cloudcms/lightcms/service"
 )
 
 // Blog content type
@@ -105,7 +104,7 @@ func (b *Blog) Delete(lang, slug string) error {
 }
 
 // BlogList1
-func BlogList1(lang, sortby string, size, skip int) ([]Blog, int, error) {
+func BlogList(lang, sortby string, size, skip int) ([]Blog, int, error) {
 	var blogs []Blog
 
 	var req = &api.ListRequest{
@@ -129,25 +128,6 @@ func BlogList1(lang, sortby string, size, skip int) ([]Blog, int, error) {
 		blogs = append(blogs, b)
 	}
 	return blogs, int(resp.Total), nil
-}
-
-// BlogList2
-func BlogList2(lang, sortby string, size, skip int) ([]Blog, int, error) {
-	var blogs []Blog
-
-	list, total, err := api.List("blog", lang, "", sortby, size, skip, os.Getenv("CLOUDCMS_SVC"))
-	if err != nil {
-		return blogs, 0, err
-	}
-
-	for _, content := range list {
-		var b Blog
-		if err := b.Parse(content); err != nil {
-			return blogs, 0, err
-		}
-		blogs = append(blogs, b)
-	}
-	return blogs, int(total), nil
 }
 
 // BlogSearch

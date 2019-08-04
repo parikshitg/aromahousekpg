@@ -15,7 +15,7 @@ type HomeController struct {
 func (c *HomeController) Get() {
 	c.TplName = "home.tpl"
 
-	blogs, total, err := content.BlogList1(language.English.String(), "-id", -1, 0)
+	blogs, total, err := content.BlogList(language.English.String(), "-id", -1, 0)
 	if err != nil {
 		c.Data["Error"] = err
 	}
