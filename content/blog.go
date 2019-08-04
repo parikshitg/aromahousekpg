@@ -3,6 +3,7 @@ package content
 import (
 	"context"
 	"fmt"
+	"os"
 	"strings"
 	"time"
 
@@ -103,8 +104,8 @@ func (b *Blog) Delete(lang, slug string) error {
 	return nil
 }
 
-// BlogList
-func BlogList(lang, sortby string, size, skip int) ([]Blog, int, error) {
+// BlogList1
+func BlogList1(lang, sortby string, size, skip int) ([]Blog, int, error) {
 	var blogs []Blog
 
 	var req = &api.ListRequest{
@@ -128,6 +129,25 @@ func BlogList(lang, sortby string, size, skip int) ([]Blog, int, error) {
 		blogs = append(blogs, b)
 	}
 	return blogs, int(resp.Total), nil
+}
+
+// BlogList2
+func BlogList2(lang, sortby string, size, skip int) ([]Blog, int, error) {
+	var blogs []Blog
+
+	list, total, err := api.List("blog", lang, "", sortby, size, skip, os.Getenv("CLOUDCMS_SVC"))
+	if err != nil {
+		return blogs, 0, err
+	}
+
+	for _, content := range list {
+		var b Blog
+		if err := b.Parse(content); err != nil {
+			return blogs, 0, err
+		}
+		blogs = append(blogs, b)
+	}
+	return blogs, int(total), nil
 }
 
 // BlogSearch
