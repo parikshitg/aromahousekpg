@@ -24,7 +24,7 @@ func main() {
 
 	dbfile := beego.AppConfig.String("dbfile")
 	if dbfile == "" {
-		dbfile = "cloudcms"
+		dbfile = "cloudcms.db"
 	}
 
 	if err := s.Initialize("db/" + dbfile); err != nil {
