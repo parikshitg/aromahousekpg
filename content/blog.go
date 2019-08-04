@@ -2,6 +2,7 @@ package content
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -45,13 +46,21 @@ func (b *Blog) String() string {
 	return fmt.Sprintf("Blog: %s", b.Title)
 }
 
+// Content converts Blog to content
+func (b *Blog) Content() map[string]interface{} {
+	var content map[string]interface{}
+	blogString, _ := json.Marshal(b)
+	json.Unmarshal(blogString, &content)
+	return content
+}
+
 // Create Blog
 func (b *Blog) Create(lang, slugtext string) error {
 	var req = &api.CreateRequest{
 		Type:     "blog",
 		Language: lang,
 		SlugText: slugtext,
-		Content:  b,
+		Content:  b.Content(),
 	}
 
 	_, err := svc.Create(context.Background(), req, false)
@@ -80,7 +89,7 @@ func (b *Blog) Update(lang, slug string) error {
 		Type:     "blog",
 		Language: lang,
 		Slug:     slug,
-		Content:  b,
+		Content:  b.Content(),
 	}
 
 	_, err := svc.Update(context.Background(), req, false)
