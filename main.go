@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+
+	s "git.urantiatech.com/cloudcms/cloudcms/service"
 	cloudcms "git.urantiatech.com/cloudcms/lightcms"
 	_ "git.urantiatech.com/homestay/aromahousekpg/content"
 	_ "git.urantiatech.com/homestay/aromahousekpg/routers"
@@ -19,12 +22,17 @@ func main() {
 
 	cloudcms.Languages(languages)
 
-	cmsport, err := beego.AppConfig.Int("cmsport")
-	if err != nil {
-		cmsport = 9090
+	dbfile := beego.AppConfig.String("dbfile")
+	if dbfile == "" {
+		dbfile = "cloudcms"
 	}
-	go cloudcms.Run(cmsport)
+
+	if err := s.Initialize("db/" + dbfile); err != nil {
+		log.Fatal(err.Error())
+	}
+	if err := s.RebuildIndex(); err != nil {
+		log.Fatal(err.Error())
+	}
 
 	beego.Run()
-
 }

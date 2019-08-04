@@ -1,11 +1,14 @@
 package content
 
 import (
+	"context"
 	"fmt"
 	"strings"
 	"time"
 
+	"git.urantiatech.com/cloudcms/cloudcms/api"
 	"git.urantiatech.com/cloudcms/cloudcms/item"
+	s "git.urantiatech.com/cloudcms/cloudcms/service"
 )
 
 // Blog content type
@@ -20,6 +23,8 @@ type Blog struct {
 	Tags     []string  `json:"tags"`
 	Image    item.File `json:"file:image"`
 }
+
+var svc = s.Service{}
 
 func init() {
 	item.Types[strings.ToLower("Blog")] = func() interface{} { return new(Blog) }
@@ -37,7 +42,119 @@ func init() {
 // String defines how a Blog is printed. Update it using more descriptive
 // fields from the Blog struct type
 func (b *Blog) String() string {
-	return fmt.Sprintf("This is Blog %s", b.Title)
+	return fmt.Sprintf("Blog: %s", b.Title)
+}
+
+// Create Blog
+func (b *Blog) Create(lang, slugtext string) error {
+	var req = &api.CreateRequest{
+		Type:     "blog",
+		Language: lang,
+		SlugText: slugtext,
+		Content:  b,
+	}
+
+	_, err := svc.Create(context.Background(), req, false)
+	return err
+}
+
+// Read Blog
+func (b *Blog) Read(lang, slug string) error {
+	var req = &api.ReadRequest{
+		Type:     "blog",
+		Language: lang,
+		Slug:     slug,
+	}
+
+	resp, err := svc.Read(context.Background(), req)
+	if err != nil {
+		return err
+	}
+
+	return b.Parse(resp.Content)
+}
+
+// Update Blog
+func (b *Blog) Update(lang, slug string) error {
+	var req = &api.UpdateRequest{
+		Type:     "blog",
+		Language: lang,
+		Slug:     slug,
+		Content:  b,
+	}
+
+	_, err := svc.Update(context.Background(), req, false)
+	return err
+}
+
+// Delete Blog
+func (b *Blog) Delete(lang, slug string) error {
+	var req = &api.DeleteRequest{
+		Type:     "blog",
+		Language: lang,
+		Slug:     slug,
+	}
+
+	_, err := svc.Delete(context.Background(), req, false)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// BlogList
+func BlogList(lang, sortby string, size, skip int) ([]Blog, int, error) {
+	var blogs []Blog
+
+	var req = &api.ListRequest{
+		Type:     "blog",
+		Language: lang,
+		SortBy:   sortby,
+		Size:     size,
+		Skip:     skip,
+	}
+
+	resp, err := svc.List(context.Background(), req)
+	if err != nil {
+		return blogs, 0, err
+	}
+
+	for _, content := range resp.List {
+		var b Blog
+		if err := b.Parse(content); err != nil {
+			return blogs, 0, err
+		}
+		blogs = append(blogs, b)
+	}
+	return blogs, int(resp.Total), nil
+}
+
+// BlogSearch
+func BlogSearch(lang, query string, size, skip int) ([]Blog, int, error) {
+	var blogs []Blog
+
+	var req = &api.SearchRequest{
+		Type:     "blog",
+		Language: lang,
+		Query:    query,
+		Size:     size,
+		Skip:     skip,
+	}
+
+	resp, err := svc.Search(context.Background(), req)
+	if err != nil {
+		return blogs, 0, err
+	}
+
+	for _, content := range resp.Hits {
+		var b Blog
+		if err := b.Parse(content); err != nil {
+			return blogs, 0, err
+		}
+		blogs = append(blogs, b)
+	}
+	return blogs, int(resp.Total), nil
 }
 
 // Parse object
