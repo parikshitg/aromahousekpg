@@ -34,5 +34,11 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
+	cmsport, err := beego.AppConfig.Int("cmsport")
+	if err != nil {
+		cmsport = 9090
+	}
+	go cloudcms.Run(cmsport)
+
 	beego.Run()
 }
