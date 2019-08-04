@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"log"
-
 	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
 	"golang.org/x/text/language"
@@ -19,7 +17,7 @@ func (c *HomeController) Get() {
 	if err != nil {
 		c.Data["Error"] = err
 	}
-	log.Println("blogs:", blogs, ", total:", total, ", err:", err)
+
 	c.Data["Blogs"] = blogs
 	c.Data["Total"] = total
 }
