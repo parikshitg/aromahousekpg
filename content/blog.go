@@ -9,7 +9,6 @@ import (
 
 	"git.urantiatech.com/cloudcms/cloudcms/api"
 	"git.urantiatech.com/cloudcms/cloudcms/item"
-	s "git.urantiatech.com/cloudcms/lightcms/service"
 )
 
 // Blog content type
@@ -24,8 +23,6 @@ type Blog struct {
 	Tags     []string  `json:"tags"`
 	Image    item.File `json:"file:image"`
 }
-
-var svc = s.Service{}
 
 func init() {
 	item.Types[strings.ToLower("Blog")] = func() interface{} { return new(Blog) }

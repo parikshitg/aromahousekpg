@@ -13,14 +13,16 @@ import (
 type Room struct {
 	item.Header
 
-	Title    string    `json:"title"`
-	BedType  string    `json:"bed_type"`
-	NumBeds  string    `json:"num_beds"`
-	Capacity string    `json:"capacity"`
-	Body     string    `json:"body"`
-	Charges  string    `json:"charges"`
-	Category string    `json:"category"`
-	Image    item.File `json:"file:image"`
+	Title       string    `json:"title"`
+	BedType     string    `json:"bed_type"`
+	NumBeds     string    `json:"num_beds"`
+	Capacity    string    `json:"capacity"`
+	Description string    `json:"description"`
+	Charges     string    `json:"charges"`
+	Category    string    `json:"category"`
+	Facilities  []string  `json:"facilities"`
+	Weight      string    `json:"weight"`
+	Image       item.File `json:"file:image"`
 }
 
 func init() {
@@ -30,9 +32,11 @@ func init() {
 		{Name: "BedType", Widget: item.WidgetInput, Helptext: "Master Bed, Queen Bed, Single bed, Matress etc"},
 		{Name: "NumBeds", Widget: item.WidgetInput, Helptext: "Number of Beds"},
 		{Name: "Capacity", Widget: item.WidgetInput, Helptext: "Max number of Adults"},
-		{Name: "Body", Widget: item.WidgetRichtext, Helptext: "Enter the Body here"},
+		{Name: "Description", Widget: item.WidgetTextarea, Helptext: "Enter the Description here"},
 		{Name: "Charges", Widget: item.WidgetInput, Helptext: "Room charges"},
 		{Name: "Category", Widget: item.WidgetInput, Helptext: "Enter the Category here"},
+		{Name: "Facilities", Widget: item.WidgetTags, Helptext: "Add multple Facility seperated by comma"},
+		{Name: "Weight", Widget: item.WidgetInput, Helptext: "Enter the Weight here"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
 	}...)
 }
@@ -140,8 +144,8 @@ func (r *Room) Parse(contents interface{}) error {
 		r.Capacity = c["capacity"].(string)
 	}
 
-	if _, ok := c["body"]; ok {
-		r.Body = c["body"].(string)
+	if _, ok := c["description"]; ok {
+		r.Description = c["description"].(string)
 	}
 
 	if _, ok := c["charges"]; ok {
@@ -150,6 +154,22 @@ func (r *Room) Parse(contents interface{}) error {
 
 	if _, ok := c["category"]; ok {
 		r.Category = c["category"].(string)
+	}
+
+	if v, ok := c["facilities"]; ok && v != nil {
+		switch c["facilities"].(type) {
+		case string:
+			r.Facilities = []string{c["facilities"].(string)}
+		case []interface{}:
+			vals := c["facilities"].([]interface{})
+			for _, val := range vals {
+				r.Facilities = append(r.Facilities, val.(string))
+			}
+		}
+	}
+
+	if _, ok := c["weight"]; ok {
+		r.Weight = c["weight"].(string)
 	}
 
 	if v, ok := c["file:image"]; ok {

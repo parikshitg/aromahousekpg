@@ -7,7 +7,17 @@ import (
 
 func init() {
 	beego.Router("/", &controllers.HomeController{})
-
+	beego.Router("/about", &controllers.AboutController{})
+	beego.Router("/room", &controllers.RoomController{})
+	beego.Router("/reservation", &controllers.ReservationController{})
+	beego.Router("/restaurant", &controllers.RestaurantController{})
+	beego.Router("/package", &controllers.PackageController{})
+	beego.Router("/blog", &controllers.BlogController{})
+	beego.Router("/gallery", &controllers.GalleryController{})
+	beego.Router("/testimonial", &controllers.TestimonialController{})
+	beego.Router("/contact", &controllers.ContactController{})
+	beego.Router("/attraction", &controllers.AttractionController{})
+	beego.Router("/activity", &controllers.ActivityController{})
 	// beego.ErrorController(&controllers.ErrorController{})
 
 	beego.SetStaticPath("/css", "static/css")

@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'mongolian_baitiregular';
+    src: url('/fonts/monbaiti-webfont.eot');
+    src: url('/fonts/monbaiti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/monbaiti-webfont.woff') format('woff'),
+         url('/fonts/monbaiti-webfont.ttf') format('truetype'),
+         url('/fonts/monbaiti-webfont.svg#mongolian_baitiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
