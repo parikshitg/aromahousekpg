@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	s "git.urantiatech.com/cloudcms/cloudcms/service"
 	cloudcms "git.urantiatech.com/cloudcms/lightcms"
+	s "git.urantiatech.com/cloudcms/lightcms/service"
 	_ "git.urantiatech.com/homestay/aromahousekpg/content"
 	_ "git.urantiatech.com/homestay/aromahousekpg/routers"
 	"github.com/astaxie/beego"
