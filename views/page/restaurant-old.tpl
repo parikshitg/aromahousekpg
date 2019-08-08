@@ -2,21 +2,27 @@
 
 {{ define "title" }} Restaurant - {{ end }}
 
+{{ define "description" }} 
+About Aroma House 
+{{ end }}
 
+{{ define "keywords" }}
+Restaurant, Hotel, Homestay, Lodge, Guest House.
+{{ end }}
 
 {{ define "contents" }}
-
 	<div class="container">
-		<div class="md-body md-room-detail clearfix">
-			<div class="grid_9 md-main">
-				<section class="heading-absolute box-sidebar align-center">
+		<div class="md-body md-standar-post clearfix">
+			<div class="grid_12 md-main">
+				<!--<section class="heading-absolute box-sidebar align-center">
 					<header class="box-heading heading-large">
-						F
+						R
 						<div class="decription-override">
-							<h2 class="h1">Food &amp; Drinks</h2>
+							<h2 class="h1">Restaurant</h2>
+							<p>Flavours of Authentic Cuisine</p>
 						</div>
 					</header>
-				</section>
+				</section>-->
 				<div class="row">
 					<section class="post-body">
 						<div class="media">
@@ -34,6 +40,8 @@
 						</div>
 					</section>
 				</div>
+			</div><!-- /.md-main -->
+		</div><!-- /.md-testimonail -->
 
 		<div class="row row-alter-110 clearfix">
 			{{ range $cuisine, $submenu := .FoodMenu }}
@@ -48,6 +56,8 @@
 					{{ range $food := $submenu}}
 					<div class="grid_3">
 						<div class="col media align-center">
+							<br>
+							<br>
 							<figure>
 								<img src="http://placeholder.mac/202x126.png" alt="" class="media-object medium">
 							</figure>
@@ -65,7 +75,9 @@
 				<br><br><br>
 			</article>
 			{{ end }}
+
 		</div><!-- /.row -->
+
 
 		<div class="row row-alter-110 clearfix">
 			{{ range $category, $submenu := .DrinkMenu }}
@@ -99,21 +111,8 @@
 				<br><br><br>
 			</article>
 			{{ end }}
+
 		</div><!-- /.row -->
 
-
-			</div><!-- /.md-main -->
-			<aside class="grid_3 md-sidebar md-sidebar-pt">
-				<section class="box-sidebar">
-					<h2 class="h3 header-sidebar"> Menu</h2>
-					<ul class="list list-check">
-						<li><a href="/restaurant">All Items</a></li>
-						{{ range $k, $v := .Categories }}
-						<li><a href="/restaurant/{{$k}}">{{$v}}</a></li>
-						{{ end }}
-					</ul>
-				</section>
-			</aside><!-- /.md-sidebar -->
-		</div><!-- /.md-testimonail -->
 	</div><!-- /.md-wrapper  -->
 {{ end }}

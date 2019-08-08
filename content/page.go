@@ -55,6 +55,13 @@ func (p *Page) Read(lang, slug string) error {
 	return p.Parse(resp.Content)
 }
 
+// Get Page
+func GetPage(lang, slug string) Page {
+	var page Page
+	page.Read(lang, slug)
+	return page
+}
+
 // PageList1
 func PageList(lang, sortby string, size, skip int) ([]Page, int, error) {
 	var pages []Page
@@ -130,8 +137,8 @@ func (p *Page) Parse(contents interface{}) error {
 	if _, ok := c["plaintext"]; ok {
 		p.Plaintext = c["plaintext"].(string)
 	}
-	if _, ok := c["Richtext"]; ok {
-		p.Richtext = c["Richtext"].(string)
+	if _, ok := c["richtext"]; ok {
+		p.Richtext = c["richtext"].(string)
 	}
 
 	if v, ok := c["list"]; ok && v != nil {

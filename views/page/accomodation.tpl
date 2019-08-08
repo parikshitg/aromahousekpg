@@ -1,14 +1,6 @@
 {{ template "layout/layout.tpl" . }}
 
-{{ define "title" }} Packages - {{ end }}
-
-{{ define "description" }} 
-About Aroma House 
-{{ end }}
-
-{{ define "keywords" }}
-Restaurant, Hotel, Homestay, Lodge, Guest House.
-{{ end }}
+{{ define "title" }} Accomodation - {{ end }}
 
 {{ define "contents" }}
 	<!-- Body -->
@@ -18,10 +10,10 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 				<section class="row md-accomodation-available clearfix">
 					<div class="grid_3 align-center">
 						<header class="box-heading heading-large">
-							P
+							A
 							<div class="decription-override">
-								<h1 class="h1">Packages</h1>
-								<p>All Inclusive Deals</p>
+								<h1 class="h1">Accomodation</h1>
+								<p>rates & reservations</p>
 							</div>
 						</header>
 					</div>
@@ -86,24 +78,16 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 
 				<section class="md-accomodation-content">
 					<div class="row clearfix">
-						{{ range $package := .Packages}}
+						{{ range $room := .Rooms}}
 						<div class="grid_4">
 							<article class="media">
 								<figure>
 									<img src="http://placeholder.mac/370x230.png" alt="" class="media-object">
 								</figure>
 								<section class="media-body">
-									<h3 class="media-header h3"><a href="room-detail.html">{{$package.Title}}</a></h3>
-									<p class="media-content">{{htmlString $package.Details}} </p>
-									<br>
-									<div class="grid_12">
-										<ul class="list list-check">
-											{{ range $l := .List }}
-											<li>{{ $l }}</li>
-											{{ end }}
-										</ul>
-									</div>
-									<a class="btn btn-small btn-border btn-border-brown" href="/reservation">Book Now</a>
+									<h3 class="media-header h4"><a href="/room/{{$room.Slug}}">{{$room.Title}}</a></h3>
+									<p class="media-content">{{ printf "%.300s" $room.Details }} ... </p>
+									<a class="btn btn-small btn-border btn-border-brown" href="/room/{{$room.Slug}}">See Detail</a>
 								</section>
 							</article>
 						</div>
@@ -113,4 +97,5 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 			</div><!-- /.md-accomodation -->
 		</section><!-- /.md-wrapper  -->
 	</div>
+
 {{ end }}

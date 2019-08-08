@@ -1,11 +1,8 @@
 package controllers
 
 import (
-	//"log"
-
 	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
-	"golang.org/x/text/language"
 )
 
 type HomeController struct {
@@ -15,19 +12,10 @@ type HomeController struct {
 func (c *HomeController) Get() {
 	c.TplName = "page/home.tpl"
 
-	blogs, total, err := content.BlogList(language.English.String(), "-id", -1, 0)
-	if err != nil {
-		c.Data["Error"] = err
-	}
+	c.Data["Banners"], _, _ = content.BannerList("en", "weight", -1, 0)
 
-	/*var b = &content.Blog{
-		Title: "Creating blog inside controller",
-	}
+	c.Data["Sidebar"] = content.GetPage("en", "why-aroma-house")
 
-	if err := b.Create("en", b.Title); err != nil {
-		log.Println(err)
-	}*/
+	c.Data["Rooms"], _, _ = content.RoomList("en", "weight", -1, 0)
 
-	c.Data["Blogs"] = blogs
-	c.Data["Total"] = total
 }

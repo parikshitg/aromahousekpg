@@ -11,7 +11,6 @@
 
   	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 	<!--  Font -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'> 
 	<link rel="stylesheet" type="text/css" href="/css/font.css">
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
 	

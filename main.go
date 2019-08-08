@@ -2,11 +2,13 @@ package main
 
 import (
 	"log"
+	"strings"
 
 	cloudcms "git.urantiatech.com/cloudcms/lightcms"
 	s "git.urantiatech.com/cloudcms/lightcms/service"
 	_ "git.urantiatech.com/homestay/aromahousekpg/content"
 	_ "git.urantiatech.com/homestay/aromahousekpg/routers"
+	"git.urantiatech.com/homestay/aromahousekpg/views"
 	"github.com/astaxie/beego"
 	"golang.org/x/text/language"
 )
@@ -40,5 +42,10 @@ func main() {
 	}
 	go cloudcms.Run(cmsport)
 
+	beego.AddFuncMap("htmlString", views.HTMLString)
+	beego.AddFuncMap("splitString", strings.Split)
+	beego.AddFuncMap("isEven", views.IsEven)
+	beego.AddFuncMap("isOdd", views.IsOdd)
+	beego.AddFuncMap("firstChar", views.FirstChar)
 	beego.Run()
 }

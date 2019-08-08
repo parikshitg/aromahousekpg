@@ -18,6 +18,7 @@ type Banner struct {
 	Subtitle string    `json:"subtitle"`
 	Text     string    `json:"text"`
 	Weight   string    `json:"weight"`
+	Link     string    `json:"link"`
 	Image    item.File `json:"file:image"`
 }
 
@@ -28,6 +29,7 @@ func init() {
 		{Name: "Subtitle", Widget: item.WidgetInput, Helptext: "Enter the Subtitle here"},
 		{Name: "Text", Widget: item.WidgetInput, Helptext: "Enter the Text here"},
 		{Name: "Weight", Widget: item.WidgetInput, Helptext: "Enter the Weight here"},
+		{Name: "Link", Widget: item.WidgetInput, Helptext: "Enter the page URI here"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
 	}...)
 }
@@ -156,6 +158,10 @@ func (b *Banner) Parse(contents interface{}) error {
 
 	if _, ok := c["weight"]; ok {
 		b.Weight = c["weight"].(string)
+	}
+
+	if _, ok := c["link"]; ok {
+		b.Link = c["link"].(string)
 	}
 
 	if v, ok := c["file:image"]; ok {

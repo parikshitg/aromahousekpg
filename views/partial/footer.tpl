@@ -1,4 +1,6 @@
-<!-- Footer -->
+
+
+			<!-- Footer -->
 			<footer class="md-footer">
 				<div class="container clearfix">
 					<div class="grid_12">
@@ -26,36 +28,23 @@
 						</div>
 						<div class="grid_4 footer-column inner-right">
 							<div class="hotel-news">
-								<h3>Current Weather</h3>
+								<h3>Newsletter</h3>
 								<div class="footer-content">
-									<div class="grid_12">
-									<a class="weatherwidget-io" href="https://forecast7.com/en/27d0688d47/kalimpong/" data-label_1="KALIMPONG" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="dark" data-textcolor="#a9a590" data-cloudcolor="#a9a590" >KALIMPONG WEATHER</a>
-									<script>
-									!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-									</script>		
-
-									<!--<ul class="list ">
-										<li><a href="#"><i class="icon icon-facebook"></i></a></li>
-										<li><a href="#"><i class="icon icon-twitter"></i></a></li>
-									</ul>-->
+									<p>Sign up for our newsletter, and we’ll keep you updated on all events at Flawles!</p>
+									<form>
+										<input type="text"><button type="submit" class="btn btn-brown">Send</button>
+									</form>
 								</div>
-								</div>
+							</div>
+						</div>
+					</div>
+					<div class="grid_12">
+						<div class="footer-social">
+							<div class="social-inner">
+								<h4 class="align-center" style="padding-top: 10px;"><a href="https://www.urantiatech.com">Designed & Hosted By : UrantiaTech.com</h4>
 							</div>
 						</div>
 					</div>
 				</div>	
 			</footer>
-			<!-- Footer End -->
 
-<!-- Header -->
-			<header class="md-header">
-				<div class="container clearfix">
-					<div class="grid_12" >	
-						<div class="footer-social align-center">					
-							<h4 class="align-center" style="padding-top: 10px;"><a href="https://www.urantiatech.com">Designed & Hosted By : Urantia Tech</h4>
-						</div>
-					</div>
-				</div>
-			</header>
-			
-			<!-- Header End -->

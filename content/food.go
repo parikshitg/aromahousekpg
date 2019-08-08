@@ -16,7 +16,7 @@ type Food struct {
 	Title    string    `json:"title"`
 	Cuisine  string    `json:"cuisine"`
 	Category string    `json:"category"`
-	Nonveg   bool      `json:"nonveg"`
+	Nonveg   string    `json:"nonveg"`
 	Body     string    `json:"body"`
 	Size     string    `json:"size"`
 	Serves   string    `json:"serves"`
@@ -139,7 +139,7 @@ func (f *Food) Parse(contents interface{}) error {
 	}
 
 	if _, ok := c["nonveg"]; ok {
-		f.Nonveg = c["nonveg"].(bool)
+		f.Nonveg = c["nonveg"].(string)
 	}
 
 	if _, ok := c["body"]; ok {

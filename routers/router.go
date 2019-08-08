@@ -8,9 +8,10 @@ import (
 func init() {
 	beego.Router("/", &controllers.HomeController{})
 	beego.Router("/about", &controllers.AboutController{})
-	beego.Router("/room", &controllers.RoomController{})
+	beego.Router("/accomodation", &controllers.AccomodationController{})
+	beego.Router("/room/:id", &controllers.RoomController{})
 	beego.Router("/reservation", &controllers.ReservationController{})
-	beego.Router("/restaurant", &controllers.RestaurantController{})
+	beego.Router("/restaurant/?:slug", &controllers.RestaurantController{})
 	beego.Router("/package", &controllers.PackageController{})
 	beego.Router("/blog", &controllers.BlogController{})
 	beego.Router("/gallery", &controllers.GalleryController{})

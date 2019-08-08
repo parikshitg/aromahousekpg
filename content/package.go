@@ -13,30 +13,28 @@ import (
 type Package struct {
 	item.Header
 
-	Title            string    `json:"title"`
-	NumNights        string    `json:"num_nights"`
-	NumAdults        string    `json:"num_adults"`
-	NumChilds        string    `json:"num_childs"`
-	Charges          string    `json:"charges"`
-	ExtraChildCharge string    `json:"extra_child_charge"`
-	ExtraAdultCharge string    `json:"extra_adult_charge"`
-	MealPlan         string    `json:"meal_plan"`
-	Body             string    `json:"body"`
-	Image            item.File `json:"file:image"`
+	Title     string    `json:"title"`
+	RoomType  string    `json:"roomtype"`
+	NumNights string    `json:"numnights"`
+	NumAdults string    `json:"numadults"`
+	NumChilds string    `json:"numchilds"`
+	Charges   string    `json:"charges"`
+	Details   string    `json:"details"`
+	List      []string  `json:"list"`
+	Image     item.File `json:"file:image"`
 }
 
 func init() {
 	item.Types[strings.ToLower("Package")] = func() interface{} { return new(Package) }
 	item.Fields[strings.ToLower("Package")] = append(item.HeaderFields, []item.Field{
 		{Name: "Title", Widget: item.WidgetInput, Helptext: "Enter the Title here", UseForSlug: true},
-		{Name: "NumNights", Heading: " ", HasLabel: true, Widget: item.WidgetInput, Helptext: "num of nights", SkipFooter: true},
-		{Name: "NumAdults", HasLabel: true, Widget: item.WidgetInput, Helptext: "No. of adults", SkipHeader: true, SkipFooter: true},
+		{Name: "RoomType", Widget: item.WidgetInput, Helptext: "Room type", SkipFooter: true},
+		{Name: "NumNights", HasLabel: true, Widget: item.WidgetInput, Helptext: "Num of nights", SkipHeader: true},
+		{Name: "NumAdults", Widget: item.WidgetInput, Helptext: "No. of adults", SkipFooter: true},
 		{Name: "NumChilds", HasLabel: true, Widget: item.WidgetInput, Helptext: "No. of Childs", SkipHeader: true},
-		{Name: "Charges", Heading: " ", HasLabel: true, Widget: item.WidgetInput, Helptext: "charges", SkipFooter: true},
-		{Name: "ExtraChildCharge", HasLabel: true, Widget: item.WidgetInput, Helptext: "Extra Child Charge", SkipHeader: true, SkipFooter: true},
-		{Name: "ExtraAdultCharge", HasLabel: true, Widget: item.WidgetInput, Helptext: "Extra Adult Charge", SkipHeader: true},
-		{Name: "MealPlan", Widget: item.WidgetInput, Helptext: "CP, AP, MAP or EP"},
-		{Name: "Body", Widget: item.WidgetRichtext, Helptext: "Enter the Body here"},
+		{Name: "Charges", Widget: item.WidgetInput, Helptext: "charges"},
+		{Name: "Details", Widget: item.WidgetRichtext, Helptext: "Enter the Details here"},
+		{Name: "List", Widget: item.WidgetList, Helptext: "List"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
 	}...)
 }
@@ -132,36 +130,40 @@ func (p *Package) Parse(contents interface{}) error {
 
 	p.Title = c["title"].(string)
 
-	if _, ok := c["num_nights"]; ok {
-		p.NumNights = c["num_nights"].(string)
+	if _, ok := c["roomtype"]; ok {
+		p.RoomType = c["roomtype"].(string)
 	}
 
-	if _, ok := c["num_adults"]; ok {
-		p.NumAdults = c["num_adults"].(string)
+	if _, ok := c["numnights"]; ok {
+		p.NumNights = c["numnights"].(string)
 	}
 
-	if _, ok := c["num_childs"]; ok {
-		p.NumChilds = c["num_childs"].(string)
+	if _, ok := c["numadults"]; ok {
+		p.NumAdults = c["numadults"].(string)
+	}
+
+	if _, ok := c["numchilds"]; ok {
+		p.NumChilds = c["numchilds"].(string)
 	}
 
 	if _, ok := c["charges"]; ok {
 		p.Charges = c["charges"].(string)
 	}
 
-	if _, ok := c["extra_adult_charge"]; ok {
-		p.ExtraAdultCharge = c["extra_adult_charge"].(string)
+	if _, ok := c["details"]; ok {
+		p.Details = c["details"].(string)
 	}
 
-	if _, ok := c["extra_child_charge"]; ok {
-		p.ExtraChildCharge = c["extra_child_charge"].(string)
-	}
-
-	if _, ok := c["meal_plan"]; ok {
-		p.MealPlan = c["meal_plan"].(string)
-	}
-
-	if _, ok := c["body"]; ok {
-		p.Body = c["body"].(string)
+	if v, ok := c["list"]; ok && v != nil {
+		switch c["list"].(type) {
+		case string:
+			p.List = []string{c["list"].(string)}
+		case []interface{}:
+			vals := c["list"].([]interface{})
+			for _, val := range vals {
+				p.List = append(p.List, val.(string))
+			}
+		}
 	}
 
 	if v, ok := c["file:image"]; ok {
