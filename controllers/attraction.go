@@ -1,9 +1,8 @@
 package controllers
 
 import (
-	//"git.urantiatech.com/homestay/aromahousekpg/content"
+	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
-	//"golang.org/x/text/language"
 )
 
 type AttractionController struct {
@@ -12,5 +11,10 @@ type AttractionController struct {
 
 func (c *AttractionController) Get() {
 	c.TplName = "page/attraction.tpl"
+
+	c.Data["Rooms"], _, _ = content.RoomList("en", "", -1, 0)
+	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
+
+	c.Data["Attractions"], _, _ = content.AttractionList("en", "", -1, 0)
 
 }

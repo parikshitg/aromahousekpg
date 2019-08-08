@@ -24,7 +24,7 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 {{ define "contents" }}
 <section class="md-contact">
 				<figure class="bg-contact">
-					<img src="/images/contact.jpg" alt="">
+					<img src="http://placeholder.mac/1560x814.png" alt="">
 					<div class="bg-pattern"></div>
 				</figure>
 				<div class="contact-wrap">

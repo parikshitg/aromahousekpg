@@ -13,7 +13,7 @@ import (
 type Testimonial struct {
 	item.Header
 
-	Guest string    `json:"guest"`
+	Title string    `json:"title"`
 	Text  string    `json:"text"`
 	Image item.File `json:"file:image"`
 }
@@ -21,8 +21,8 @@ type Testimonial struct {
 func init() {
 	item.Types[strings.ToLower("Testimonial")] = func() interface{} { return new(Testimonial) }
 	item.Fields[strings.ToLower("Testimonial")] = append(item.HeaderFields, []item.Field{
-		{Name: "Guest", Widget: item.WidgetInput, Helptext: "Enter the Guest Name here", UseForSlug: true},
-		{Name: "Text", Widget: item.WidgetRichtext, Helptext: "Enter the Text here"},
+		{Name: "Title", Heading: "Guest", Widget: item.WidgetInput, Helptext: "Enter the Guest Name here", UseForSlug: true},
+		{Name: "Text", Widget: item.WidgetTextarea, Helptext: "Enter the Text here"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
 	}...)
 }
@@ -30,13 +30,13 @@ func init() {
 // String defines how a Testimonial is printed. Update it using more descriptive
 // fields from the Testimonial struct type
 func (t *Testimonial) String() string {
-	return fmt.Sprintf("Testimonial: %s", t.Guest)
+	return fmt.Sprintf("Testimonial: %s", t.Title)
 }
 
 // Read Testimonial
 func (t *Testimonial) Read(lang, slug string) error {
 	var req = &api.ReadRequest{
-		Type:     "review",
+		Type:     "testimonial",
 		Language: lang,
 		Slug:     slug,
 	}
@@ -51,10 +51,10 @@ func (t *Testimonial) Read(lang, slug string) error {
 
 // TestimonialList1
 func TestimonialList(lang, sortby string, size, skip int) ([]Testimonial, int, error) {
-	var reviews []Testimonial
+	var testimonials []Testimonial
 
 	var req = &api.ListRequest{
-		Type:     "review",
+		Type:     "testimonial",
 		Language: lang,
 		SortBy:   sortby,
 		Size:     size,
@@ -63,25 +63,25 @@ func TestimonialList(lang, sortby string, size, skip int) ([]Testimonial, int, e
 
 	resp, err := svc.List(context.Background(), req)
 	if err != nil {
-		return reviews, 0, err
+		return testimonials, 0, err
 	}
 
 	for _, content := range resp.List {
 		var t Testimonial
 		if err := t.Parse(content); err != nil {
-			return reviews, 0, err
+			return testimonials, 0, err
 		}
-		reviews = append(reviews, t)
+		testimonials = append(testimonials, t)
 	}
-	return reviews, int(resp.Total), nil
+	return testimonials, int(resp.Total), nil
 }
 
 // TestimonialSearch
 func TestimonialSearch(lang, query string, size, skip int) ([]Testimonial, int, error) {
-	var reviews []Testimonial
+	var testimonials []Testimonial
 
 	var req = &api.SearchRequest{
-		Type:     "review",
+		Type:     "testimonial",
 		Language: lang,
 		Query:    query,
 		Size:     size,
@@ -90,17 +90,17 @@ func TestimonialSearch(lang, query string, size, skip int) ([]Testimonial, int, 
 
 	resp, err := svc.Search(context.Background(), req)
 	if err != nil {
-		return reviews, 0, err
+		return testimonials, 0, err
 	}
 
 	for _, content := range resp.Hits {
 		var t Testimonial
 		if err := t.Parse(content); err != nil {
-			return reviews, 0, err
+			return testimonials, 0, err
 		}
-		reviews = append(reviews, t)
+		testimonials = append(testimonials, t)
 	}
-	return reviews, int(resp.Total), nil
+	return testimonials, int(resp.Total), nil
 }
 
 // Parse object
@@ -116,7 +116,9 @@ func (t *Testimonial) Parse(contents interface{}) error {
 	t.UpdatedAt = int64(c["updated_at"].(float64))
 	t.DeletedAt = int64(c["deleted_at"].(float64))
 
-	t.Guest = c["guest"].(string)
+	if _, ok := c["title"]; ok {
+		t.Title = c["title"].(string)
+	}
 
 	if _, ok := c["text"]; ok {
 		t.Text = c["text"].(string)

@@ -1,9 +1,8 @@
 package controllers
 
 import (
-	//"git.urantiatech.com/homestay/aromahousekpg/content"
+	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
-	//"golang.org/x/text/language"
 )
 
 type GalleryController struct {
@@ -13,4 +12,7 @@ type GalleryController struct {
 func (c *GalleryController) Get() {
 	c.TplName = "page/gallery.tpl"
 
+	c.Data["Gallery"], _, _ = content.GalleryList("en", "", -1, 0)
+
+	Debug(c.Data["Gallery"])
 }

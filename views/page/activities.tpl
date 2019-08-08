@@ -1,6 +1,6 @@
 {{ template "layout/layout.tpl" . }}
 
-{{ define "title" }} Attractions - {{ end }}
+{{ define "title" }} Activities - {{ end }}
 
 {{ define "contents" }}
 
@@ -12,8 +12,8 @@
 						<header class="box-heading heading-large">
 							A
 							<div class="decription-override">
-								<h2 class="h1">Attractions</h2>	
-								<p>Local Sightseeing & Attractions</p>
+								<h2 class="h1">Activities</h2>	
+								<p> Adventures Activities</p>
 							</div>
 						</header>
 					</section>
