@@ -28,7 +28,7 @@ func init() {
 		{Name: "Subtitle", Widget: item.WidgetInput, Helptext: "Enter the Subtitle here"},
 		{Name: "Plaintext", Widget: item.WidgetTextarea, Helptext: "Enter the plain text here"},
 		{Name: "Richtext", Widget: item.WidgetRichtext, Helptext: "Enter the HTML content here"},
-		{Name: "List", Widget: item.WidgetTags, Helptext: "Add multple List items seperated by comma"},
+		{Name: "List", Widget: item.WidgetList, Helptext: "Add multple List items seperated by comma"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
 	}...)
 }

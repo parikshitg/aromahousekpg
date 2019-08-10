@@ -15,7 +15,7 @@
 								<h2 class="h2">Aroma House</h2>
 							</header>
 							<figure>
-								<img src="http://localhost:9090{{.Image.URI}}" alt="" class="media-object">
+								<img src="http://placeholder.mac/1900x800.png" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
 								{{ htmlString .Richtext }}
@@ -26,10 +26,10 @@
 
 						{{ with .Chef }}
 						<div class="media media-col">
-							<h3 >Chef Bikas Lama (OWNER)</h3>
+							<h3 >Bikas Lama (Owner & Master Chef)</h3>
 							<br>
 							<figure class="pull-left">
-								<img src="http://localhost:9090{{.Image.URI}}" alt="" class="media-object">
+								<img src="http://placeholder.mac/400x600.png" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
 								{{ htmlString .Richtext }}

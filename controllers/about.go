@@ -12,8 +12,8 @@ type AboutController struct {
 func (c *AboutController) Get() {
 	c.TplName = "page/about.tpl"
 
-	c.Data["About"] = content.GetPage("en", "about-aroma-house")
+	c.Data["About"] = content.GetPage("en", "about")
 
-	c.Data["Chef"] = content.GetPage("en", "chef-bikas-lama")
+	c.Data["Chef"] = content.GetPage("en", "chef")
 
 }
