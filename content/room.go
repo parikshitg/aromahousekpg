@@ -32,6 +32,7 @@ type Room struct {
 	MAPCharges    string    `json:"mapcharges"`
 	MAPExtraAdult string    `json:"mapextraadult"`
 	MAPExtraChild string    `json:"mapextrachild"`
+	Discount      string    `json:"discount"`
 	Facilities    []string  `json:"facilities"`
 	GST           string    `json:"gst"`
 	Weight        string    `json:"weight"`
@@ -67,6 +68,8 @@ func init() {
 		{Name: "MAPCharges", Heading: "MAP", HasLabel: true, Widget: item.WidgetInput, Helptext: "Room charges", SkipFooter: true},
 		{Name: "MAPExtraAdult", HasLabel: true, Widget: item.WidgetInput, Helptext: "Extra adult charges", SkipHeader: true, SkipFooter: true},
 		{Name: "MAPExtraChild", HasLabel: true, Widget: item.WidgetInput, Helptext: "Extra child charges", SkipHeader: true},
+
+		{Name: "Discount", Widget: item.WidgetInput, Helptext: "Discount on EP, CP, AP & MAP"},
 
 		{Name: "Facilities", Widget: item.WidgetList, Helptext: "Add multple Facility seperated by comma"},
 		{Name: "GST", Widget: item.WidgetInput, Helptext: "Enter the GST percentage here"},
@@ -247,6 +250,10 @@ func (r *Room) Parse(contents interface{}) error {
 
 	if _, ok := c["mapextrachild"]; ok {
 		r.MAPExtraChild = c["mapextrachild"].(string)
+	}
+
+	if _, ok := c["discount"]; ok {
+		r.Discount = c["discount"].(string)
 	}
 
 	if v, ok := c["facilities"]; ok && v != nil {
