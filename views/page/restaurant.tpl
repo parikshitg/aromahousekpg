@@ -25,7 +25,7 @@
 							</header>
 							{{ with .Restaurant }}
 							<figure>
-								<img src="http://placeholder.mac/1900x647.png" alt="" class="media-object">
+								<img src="{{ image .Image.URI 1900 647 }}" alt="" class="media-object">
 							</figure>			
 							<div class="media-body">
 								{{ htmlString .Richtext }}
@@ -49,7 +49,7 @@
 					<div class="grid_3">
 						<div class="col media align-center">
 							<figure>
-								<img src="http://placeholder.mac/202x126.png" alt="" class="media-object medium">
+								<img src="{{ image $food.Image.URI 202 126 }}" alt="" class="media-object medium">
 							</figure>
 							<br>
 							<header class="box-heading">
@@ -83,7 +83,7 @@
 							<br>
 							<br>
 							<figure>
-								<img src="http://placeholder.mac/202x126.png" alt="" class="media-object medium">
+								<img src="{{ image $drink.Image.URI 202 126 }}" alt="" class="media-object medium">
 							</figure>
 							<br>
 							<header class="box-heading">

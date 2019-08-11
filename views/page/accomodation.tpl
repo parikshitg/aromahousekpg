@@ -82,7 +82,7 @@
 						<div class="grid_4">
 							<article class="media">
 								<figure>
-									<img src="http://placeholder.mac/370x230.png" alt="" class="media-object">
+									<img src="{{ image $room.Image.URI 370 230 }}" alt="" class="media-object">
 								</figure>
 								<section class="media-body">
 									<h3 class="media-header h4"><a href="/room/{{$room.Slug}}">{{$room.Title}}</a></h3>

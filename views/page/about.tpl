@@ -15,7 +15,7 @@
 								<h2 class="h2">Aroma House</h2>
 							</header>
 							<figure>
-								<img src="http://placeholder.mac/1900x800.png" alt="" class="media-object">
+								<img src="{{ image .Image.URI 1900 800 }}" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
 								{{ htmlString .Richtext }}
@@ -29,7 +29,7 @@
 							<h3 >Bikas Lama (Owner & Master Chef)</h3>
 							<br>
 							<figure class="pull-left">
-								<img src="http://placeholder.mac/400x600.png" alt="" class="media-object">
+								<img src="{{ image .Image.URI 400 600 }}" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
 								{{ htmlString .Richtext }}

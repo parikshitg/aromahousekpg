@@ -22,7 +22,7 @@
 						{{ range $a := .Activities }}
 						<article class="media">
 							<figure class="pull-left">
-								<img src="http://placeholder.mac/349x194.png" alt="" class="media-object">
+								<img src="{{ image $a.Image.URI 349 194 }}" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
 								<header class="media-header">

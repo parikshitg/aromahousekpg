@@ -90,7 +90,7 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 						<div class="grid_4">
 							<article class="media">
 								<figure>
-									<img src="http://placeholder.mac/370x230.png" alt="" class="media-object">
+									<img src="{{ image $package.Image.URI 370 230 }}" alt="" class="media-object">
 								</figure>
 								<section class="media-body">
 									<h3 class="media-header h3"><a href="room-detail.html">{{$package.Title}}</a></h3>

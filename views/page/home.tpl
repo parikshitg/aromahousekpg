@@ -95,7 +95,7 @@
 						<div class="row row-home">
 							<article class="media">
 								<figure class="media-image">
-									<img src="http://placeholder.mac/459x280.png" alt="" class="media-object">
+									<img src="{{image $room.Image.URI 459 280}}" alt="" class="media-object">
 								</figure>
 								<section class="media-body">
 									<h3 class="media-header media-header-big">
