@@ -17,4 +17,10 @@ func (c *ActivityController) Get() {
 
 	c.Data["Activities"], _, _ = content.ActivityList("en", "", -1, 0)
 
+	page := content.GetPage("en", "activities")
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
+
 }

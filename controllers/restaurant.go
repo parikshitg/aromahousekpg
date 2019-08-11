@@ -15,7 +15,13 @@ func (c *RestaurantController) Get() {
 	c.TplName = "page/restaurant.tpl"
 	slug := c.Ctx.Input.Param(":slug")
 
-	c.Data["Restaurant"] = content.GetPage("en", "restaurant")
+	page := content.GetPage("en", "restaurant")
+	c.Data["Restaurant"] = page
+
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
 
 	var categories = make(map[string]string)
 

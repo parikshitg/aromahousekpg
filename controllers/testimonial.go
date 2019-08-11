@@ -14,5 +14,11 @@ func (c *TestimonialController) Get() {
 
 	c.Data["Testimonials"], _, _ = content.TestimonialList("en", "", -1, 0)
 
+	page := content.GetPage("en", "testimonials")
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
+
 	Debug(c.Data["Testimonials"])
 }

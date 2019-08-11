@@ -12,6 +12,12 @@ type ContactController struct {
 func (c *ContactController) Get() {
 	c.TplName = "page/contact.tpl"
 
-	c.Data["Contact"] = content.GetPage("en", "contact")
+	page := content.GetPage("en", "contact")
+	c.Data["Contact"] = page
+
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
 
 }

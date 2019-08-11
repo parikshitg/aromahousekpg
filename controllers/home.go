@@ -18,4 +18,10 @@ func (c *HomeController) Get() {
 
 	c.Data["Rooms"], _, _ = content.RoomList("en", "weight", -1, 0)
 
+	page := content.GetPage("en", "home")
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
+
 }

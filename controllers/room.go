@@ -16,4 +16,10 @@ func (c *RoomController) Get() {
 		c.Data["Room"] = content.GetRoom("en", slug)
 	}
 
+	page := content.GetPage("en", "home")
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
+
 }

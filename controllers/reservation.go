@@ -14,4 +14,10 @@ func (c *ReservationController) Get() {
 
 	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
 
+	page := content.GetPage("en", "reservation")
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
+
 }

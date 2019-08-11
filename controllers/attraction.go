@@ -17,4 +17,10 @@ func (c *AttractionController) Get() {
 
 	c.Data["Attractions"], _, _ = content.AttractionList("en", "", -1, 0)
 
+	page := content.GetPage("en", "attraction")
+	meta := make(map[string]string)
+	meta["keywords"] = page.MetaKeywords
+	meta["description"] = page.MetaDescription
+	c.Data["Meta"] = meta
+
 }

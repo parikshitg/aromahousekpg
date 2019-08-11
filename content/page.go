@@ -14,12 +14,14 @@ import (
 type Page struct {
 	item.Header
 
-	Title     string    `json:"title"`
-	Subtitle  string    `json:"subtitle"`
-	Plaintext string    `json:"plaintext"`
-	Richtext  string    `json:"richtext"`
-	List      []string  `json:"list"`
-	Image     item.File `json:"file:image"`
+	Title           string    `json:"title"`
+	Subtitle        string    `json:"subtitle"`
+	Plaintext       string    `json:"plaintext"`
+	Richtext        string    `json:"richtext"`
+	List            []string  `json:"list"`
+	Image           item.File `json:"file:image"`
+	MetaKeywords    string    `json:"metakeywords"`
+	MetaDescription string    `json:"metadescription"`
 }
 
 func init() {
@@ -31,6 +33,8 @@ func init() {
 		{Name: "Richtext", Widget: item.WidgetRichtext, Helptext: "Enter the HTML content here"},
 		{Name: "List", Widget: item.WidgetList, Helptext: "Add multple List items seperated by comma"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
+		{Name: "MetaKeywords", Widget: item.WidgetTextarea, Helptext: "Meta Keywords"},
+		{Name: "MetaDescription", Widget: item.WidgetTextarea, Helptext: "Meta Description"},
 	}...)
 }
 
@@ -179,6 +183,14 @@ func (p *Page) Parse(contents interface{}) error {
 		if _, ok := c["file:image.uri"]; ok {
 			p.Image.URI = c["file:image.uri"].(string)
 		}
+	}
+
+	if _, ok := c["metakeywords"]; ok {
+		p.MetaKeywords = c["metakeywords"].(string)
+	}
+
+	if _, ok := c["metadescription"]; ok {
+		p.MetaDescription = c["metadescription"].(string)
 	}
 
 	return nil

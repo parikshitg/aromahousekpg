@@ -6,8 +6,11 @@
 	<meta name="format-detection" content="telephone=no">
 	<!--  Viewport setting -->
 	<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta name="description" content="{{ block "description" . }} {{ end }}">
-  	<meta name="keywords" content="{{ block "keywords" . }} {{ end }}">
+
+	{{ range $k, $v  := .Meta }}
+	<meta name="{{$k}}" content="{{$v}}">
+	{{ end }}
+
 
   	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 	<!--  Font -->
