@@ -1,6 +1,7 @@
 package views
 
 import (
+	"fmt"
 	"html/template"
 )
 
@@ -26,4 +27,12 @@ func FirstChar(s string) string {
 		return string(chars[0])
 	}
 	return ""
+}
+
+// Image returns placeholder image if image is not found
+func Image(url string, width, height int) string {
+	if url != "" {
+		return url
+	}
+	return fmt.Sprintf("/placeholder/%dx%d.png", width, height)
 }

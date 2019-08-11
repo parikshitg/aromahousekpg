@@ -6,7 +6,7 @@
 			{{ range $banner := .Banners }}
 			<li>
 				<!-- img src="http://placehold.it/1615x647" alt="" -->
-				<img src="http://placeholder.mac/1615x647.png" alt="" >
+				<img src="{{ image $banner.Image.URI 1615 647 }}" alt="" >
 				<div class="content-slide">
 					<div class="home-content">
 						<h2 class="slide-title alter">{{$banner.Title}}</h2>

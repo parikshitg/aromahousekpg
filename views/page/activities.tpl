@@ -19,72 +19,22 @@
 					</section>
 
 					<div class="list-article">
+						{{ range $a := .Activities }}
 						<article class="media">
 							<figure class="pull-left">
-								<img src="/images/durga-mandir.jpg" alt="" class="media-object">
+								<img src="http://placeholder.mac/349x194.png" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
 								<header class="media-header">
 									
-									<h3 class="h4"><a href="blog-detail.html">Vivamus ac nulla accumsan, pretium dui vitae, rutrum sem</a></h3>
+									<h3 class="h4"><a href="blog-detail.html">{{$a.Title}}</a></h3>
 								</header>
-								<p class="media-content">Morbi erat enim, euismod eget pharetra in, accumsan vitae lectus. Duis id varius magna, in porttitor ipsum. Integer a fringilla enim, a lacinia neque. Cras non dictum sem. Nunc sit amet ante ac est congue varius non vitae lectus </p>
+								<p class="media-content">{{$a.Body}} </p>
 								
 							</div>
 						</article>
-						<article class="media">
-							<figure class="pull-left">
-								<img src="/images/magaldham.jpg" alt="" class="media-object">
-							</figure>
-							<div class="media-body">
-								<header class="media-header">
-									
-									<h3 class="h4"><a href="blog-detail.html">Aliquam nibh sapien, feugiat id mollis quis, aliquet et tellus.</a></h3>
-								</header>
-								<p class="media-content">Integer laoreet, nisi eget consectetur auctor, ligula nisi semper turpis, tristique sollicitudin elit arcu eu augue. Curabitur eu mi diam. Nunc cursus libero a justo vulputate, et dignissim dolor feugiat. </p>
-								
-							</div>
-						</article>
-						<article class="media media-video">
-							<figure class="pull-left">
-								<img src="/images/hanuman-temple.jpg" alt="" class="media-object">
-								<i class="icon icon-video"></i>
-							</figure>
-							<div class="media-body">
-								<header class="media-header">
-									
-									<h3 class="h4"><a href="blog-detail.html">Phasellus eleifend, mi sit amet laoreet semper, dolor est ultrices mi</a></h3>
-								</header>
-								<p class="media-content">Morbi erat enim, euismod eget pharetra in, accumsan vitae lectus. Duis id varius magna, in porttitor ipsum. Integer a fringilla enim, a lacinia neque. Cras non dictum sem. Nunc sit amet ante ac est congue varius non vitae lectus </p>
-								
-							</div>
-						</article>
-						<article class="media">
-							<figure class="pull-left">
-								<img src="/images/buddhastatue.jpg" alt="" class="media-object">
-							</figure>
-							<div class="media-body">
-								<header class="media-header">
-									
-									<h3 class="h4"><a href="blog-detail.html">Vivamus ac nulla accumsan, pretium dui vitae, rutrum sem.</a></h3>
-								</header>
-								<p class="media-content">Integer laoreet, nisi eget consectetur auctor, ligula nisi semper turpis, tristique sollicitudin elit arcu eu augue. Curabitur eu mi diam. Nunc cursus libero a justo vulputate, et dignissim dolor feugiat. </p>
-								
-							</div>
-						</article>
-						<article class="media">
-							<figure class="pull-left">
-								<img src="/images/sciencenter.jpg" alt="" class="media-object">
-							</figure>
-							<div class="media-body">
-								<header class="media-header">
-									
-									<h3 class="h4"><a href="blog-detail.html">Aliquam nibh sapien, feugiat id mollis quis, aliquet et tellus.</a></h3>
-								</header>
-								<p class="media-content">Morbi erat enim, euismod eget pharetra in, accumsan vitae lectus. Duis id varius magna, in porttitor ipsum. Integer a fringilla enim, a lacinia neque. Cras non dictum sem. Nunc sit amet ante ac est congue varius non vitae lectus </p>
-								
-							</div>
-						</article>
+						{{ end }}
+
 					</div>
 
 				</div><!-- /.md-main -->

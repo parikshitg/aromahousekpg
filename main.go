@@ -47,5 +47,6 @@ func main() {
 	beego.AddFuncMap("isEven", views.IsEven)
 	beego.AddFuncMap("isOdd", views.IsOdd)
 	beego.AddFuncMap("firstChar", views.FirstChar)
+	beego.AddFuncMap("image", views.Image)
 	beego.Run()
 }

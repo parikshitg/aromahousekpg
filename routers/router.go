@@ -19,6 +19,8 @@ func init() {
 	beego.Router("/contact", &controllers.ContactController{})
 	beego.Router("/attractions", &controllers.AttractionController{})
 	beego.Router("/activity", &controllers.ActivityController{})
+	beego.Router("/placeholder/:size([0-9]+x[0-9]+).png", &controllers.PlaceholderController{})
+
 	// beego.ErrorController(&controllers.ErrorController{})
 
 	beego.SetStaticPath("/css", "static/css")

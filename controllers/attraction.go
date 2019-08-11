@@ -10,7 +10,7 @@ type AttractionController struct {
 }
 
 func (c *AttractionController) Get() {
-	c.TplName = "page/attraction.tpl"
+	c.TplName = "page/attractions.tpl"
 
 	c.Data["Rooms"], _, _ = content.RoomList("en", "", -1, 0)
 	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
