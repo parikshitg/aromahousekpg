@@ -1,9 +1,8 @@
 package controllers
 
 import (
-	//"git.urantiatech.com/homestay/aromahousekpg/content"
+	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
-	//"golang.org/x/text/language"
 )
 
 type ReservationController struct {
@@ -12,5 +11,7 @@ type ReservationController struct {
 
 func (c *ReservationController) Get() {
 	c.TplName = "page/reservation.tpl"
+
+	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
 
 }

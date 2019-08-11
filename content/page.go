@@ -2,6 +2,7 @@ package content
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 
@@ -50,6 +51,10 @@ func (p *Page) Read(lang, slug string) error {
 	resp, err := svc.Read(context.Background(), req)
 	if err != nil {
 		return err
+	}
+
+	if resp.Err != "" {
+		return errors.New(resp.Err)
 	}
 
 	return p.Parse(resp.Content)

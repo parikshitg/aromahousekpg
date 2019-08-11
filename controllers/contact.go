@@ -1,9 +1,8 @@
 package controllers
 
 import (
-	//"git.urantiatech.com/homestay/aromahousekpg/content"
+	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
-	//"golang.org/x/text/language"
 )
 
 type ContactController struct {
@@ -12,5 +11,7 @@ type ContactController struct {
 
 func (c *ContactController) Get() {
 	c.TplName = "page/contact.tpl"
+
+	c.Data["Contact"] = content.GetPage("en", "contact")
 
 }
