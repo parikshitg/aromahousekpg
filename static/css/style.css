@@ -439,14 +439,14 @@ img  {width: 100%; vertical-align: middle}
 .tags-post > a     {color: #A29061;}
 .tags-post > a:hover{color: #242424;}
 .media-header-big {
-    font-size: 65px;
+    font-size: 55px;
     line-height: 46px;
     margin-bottom: 11px;
 }
 h2, h3, h4 {font-family: 'mongolian_baitiregular';}
 h5, h6 {font-family: 'Open Sans';}
 h1,h3, h4, h5{text-transform: uppercase;}
-p, label {font-family: 'Open Sans'; font-weight: 400; line-height: 25px; font-size: 13px;}
+p, label {font-family: 'Open Sans'; font-weight: 400; line-height: 25px; font-size: 16px;}
 
 h2.h2 {font-size: 40px;}
 h3,.h3 {font-size: 24px;}
@@ -544,7 +544,7 @@ h6,.h6 {font-size: 14px;}
 /* Footer Style */
 .md-footer {
     background-color: #000000;
-    padding: 30px 0 50px;
+    padding: 60px 0 90px;
 }
 
 .md-footer h3 {
@@ -780,7 +780,7 @@ nav {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
+    width: 1920px;
     height: 650px;
     max-width: none;
     position: absolute;
@@ -1128,28 +1128,13 @@ select option.option-test:hover {background-color: #F00;}
 .icon-twitter   {width: 19px; height: 15px; background-position: -25px -45px;}
 .icon-google    {width: 18px; height: 17px; background-position: -50px -45px;}
 .icon-dribbble  {width: 17px; height: 16px; background-position: -75px -45px;}
-.icon-facebook{
-    top: 8px;
-    left: 0;
-    right: 40;
-    margin: 0 auto;
-}
-.icon-twitter{
-    top: 56px;
-    left: 0;
-    right: 60;
-    margin: 0 auto;
-}
-.icon-google{
-    top: 8px;
-    left: 0;
-    right: 60;
-    margin: 0 auto;
-}
+.icon-facebook,
+.icon-twitter,
+.icon-google,
 .icon-dribbble {
     top: 8px;
     left: 0;
-    right: 60;
+    right: 0;
     margin: 0 auto;
 }
     .post-footer .icon-facebook     {background-position: 0 -25px;}
@@ -1294,7 +1279,7 @@ select option.option-test:hover {background-color: #F00;}
 }
     .mini {width: 150px; height: 90px; max-width: 100%;}
     .medium {width: 202px; height: 126px; max-width: 100%;}
-    .mediumv {width: 126px; height: 202px; max-height: 100%;}
+
 
 /* Text Quote Style */
 .box-quote {
@@ -1540,8 +1525,8 @@ select option.option-test:hover {background-color: #F00;}
 }
 .col > span {display: block;}
 .row-room .col.media {width: 26.59090%;}
-.row-room .col.list {width: 18.181818%;}
-.row-room .col.price {width: 37.04545%; text-align: right;}
+.row-room .col.list {width: 28.181818%;}
+.row-room .col.price {width: 17.04545%; text-align: right;}
 .col.price > .from {
     margin: 7px 0 -8px;
     font-family: "Georgia";
@@ -1561,8 +1546,8 @@ select option.option-test:hover {background-color: #F00;}
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: auto;
+    width: 1920px;
+    height: 100%;
     max-width: none;
     position: absolute;
     left: 50%;
@@ -1805,7 +1790,7 @@ select option.option-test:hover {background-color: #F00;}
 .address-wrap {
     position: absolute;
     top: 50%;
-    left: -275px;
+    left: -265px;
 }
 .address-info > ul, 
 .address-map {float: left; height: 189px;}
@@ -1814,7 +1799,7 @@ select option.option-test:hover {background-color: #F00;}
     border-color: #a29061;
     border-width: 1px 0 1px 1px;
     float: left;
-    width: 275px;
+    width: 265px;
     padding: 5px 0 5px 5px;
 }
 .address-info ul li::-moz-selection {background: #242424; color: #A29061;}
@@ -1824,7 +1809,7 @@ select option.option-test:hover {background-color: #F00;}
     background: #a29061;
     height: 189px;
     padding: 20px;
-    width: 110%;
+    width: 100%;
 }
 .address-map {
     margin: 5px 5px 5px 0;

@@ -13,7 +13,7 @@ func init() {
 	beego.Router("/reservation", &controllers.ReservationController{})
 	beego.Router("/restaurant/?:slug", &controllers.RestaurantController{})
 	beego.Router("/packages", &controllers.PackageController{})
-	beego.Router("/blog", &controllers.BlogController{})
+	beego.Router("/blog/?:slug", &controllers.BlogController{})
 	beego.Router("/gallery", &controllers.GalleryController{})
 	beego.Router("/testimonial", &controllers.TestimonialController{})
 	beego.Router("/contact", &controllers.ContactController{})

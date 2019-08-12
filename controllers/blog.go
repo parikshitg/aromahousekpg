@@ -18,4 +18,10 @@ func (c *BlogController) Get() {
 	meta["description"] = page.MetaDescription
 	c.Data["Meta"] = meta
 
+	if slug := c.Ctx.Input.Param(":slug"); slug != "" {
+		c.Data["Post"] = content.GetBlog("en", slug)
+	} else {
+		c.Data["BlogList"], _, _ = content.BlogList("en", "-id", -1, 0)
+	}
+
 }

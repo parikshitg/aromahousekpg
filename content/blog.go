@@ -80,6 +80,13 @@ func (b *Blog) Read(lang, slug string) error {
 	return b.Parse(resp.Content)
 }
 
+// Get Blog
+func GetBlog(lang, slug string) Blog {
+	var blog Blog
+	blog.Read(lang, slug)
+	return blog
+}
+
 // Update Blog
 func (b *Blog) Update(lang, slug string) error {
 	var req = &api.UpdateRequest{
