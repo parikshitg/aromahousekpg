@@ -17,9 +17,6 @@ func main() {
 
 	var languages = []language.Tag{
 		language.English,
-		language.French,
-		language.Spanish,
-		language.Russian,
 	}
 
 	cloudcms.Languages(languages)
