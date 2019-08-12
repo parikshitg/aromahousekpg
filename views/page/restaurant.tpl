@@ -28,7 +28,7 @@
 								<img src="{{ image .Image.URI 1900 647 }}" alt="" class="media-object">
 							</figure>			
 							<div class="media-body">
-								{{ htmlString .Richtext }}
+								<p>{{ htmlString .Richtext }}</p>
 							</div>
 							{{ end }}
 						</div>

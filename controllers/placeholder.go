@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"image/color"
 	"image/png"
-	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -38,7 +37,6 @@ func (c *PlaceholderController) Get() {
 	}
 
 	text := c.GetString("text")
-	log.Println("text:", text)
 	if text == "" {
 		text = fmt.Sprintf("%dx%d", width, height)
 	}

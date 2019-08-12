@@ -25,26 +25,26 @@
 					<div class="row slide-preview-room">
 						<div id="sliderBig">
 							<ul>
-								<li class="slideshow-photo"><img src="http://placeholder.mac/1900x647.png" alt=""></li>
-								<li class="slideshow-photo"><img src="http://placeholder.mac/1900x647.png" alt=""></li>
-								<li class="slideshow-photo"><img src="http://placeholder.mac/1900x647.png" alt=""></li>
-								<li class="slideshow-photo"><img src="http://placeholder.mac/1900x647.png" alt=""></li>
-								<li class="slideshow-photo"><img src="http://placeholder.mac/1900x647.png" alt=""></li>
+								<li class="slideshow-photo"><img src="{{ image "" 1900 647 }}" alt=""></li>
+								<li class="slideshow-photo"><img src="{{ image "" 1900 647 }}" alt=""></li>
+								<li class="slideshow-photo"><img src="{{ image "" 1900 647 }}" alt=""></li>
+								<li class="slideshow-photo"><img src="{{ image "" 1900 647 }}" alt=""></li>
+								<li class="slideshow-photo"><img src="{{ image "" 1900 647 }}" alt=""></li>
 							</ul>
 						</div>
 						<div id="sliderThumb">
 							<ul>
-								<li slideIndex="0"><a href="#"><img src="http://placeholder.mac/190x110.png" alt=""></a></li>
-								<li slideIndex="0"><a href="#"><img src="http://placeholder.mac/190x110.png" alt=""></a></li>
-								<li slideIndex="0"><a href="#"><img src="http://placeholder.mac/190x110.png" alt=""></a></li>
-								<li slideIndex="0"><a href="#"><img src="http://placeholder.mac/190x110.png" alt=""></a></li>
-								<li slideIndex="0"><a href="#"><img src="http://placeholder.mac/190x110.png" alt=""></a></li>
+								<li slideIndex="0"><a href="#"><img src="{{ image "" 190 110 }}" alt=""></a></li>
+								<li slideIndex="0"><a href="#"><img src="{{ image "" 190 110 }}" alt=""></a></li>
+								<li slideIndex="0"><a href="#"><img src="{{ image "" 190 110 }}" alt=""></a></li>
+								<li slideIndex="0"><a href="#"><img src="{{ image "" 190 110 }}" alt=""></a></li>
+								<li slideIndex="0"><a href="#"><img src="{{ image "" 190 110 }}" alt=""></a></li>
 							</ul>
 						</div>
 					</div>
 					
 					<div class="preview-content">
-						{{.Details}}
+						<p>{{ htmlString .Details }}</p>
 					</div>
 
 					<!-- Md booking -->

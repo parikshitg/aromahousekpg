@@ -18,7 +18,7 @@
 								<img src="{{ image .Image.URI 1900 800 }}" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
-								{{ htmlString .Richtext }}
+								<p>{{ htmlString .Richtext }}</p>
 							</div>
 						</div>
 						{{ end }}
@@ -32,7 +32,7 @@
 								<img src="{{ image .Image.URI 400 600 }}" alt="" class="media-object">
 							</figure>
 							<div class="media-body">
-								{{ htmlString .Richtext }}
+								<p>{{ htmlString .Richtext }}</p>
 								<br>
 								<br>
 
@@ -56,9 +56,7 @@
 											{{ end }}
 										{{ end }}
 									</ul>
-								</div>
-								<!--<p>Donec eget tellus eget quam facilisis egestas. Maecenas molestie turpis at tincidunt commodo. Aenean et sapien in lacus sagittis elementum a nec. Nunc at tristique erat. Vestibulum at augue id ante placerat porta ut sit amet mi. Phasellus venenatis odio nec massa dictum, et bibendum justo iaculis. Sed lobortis diam et massa vestibulum, id sagittis purus malesuada. Nullam aliquam feugiat nisi. Aliquam semper, lectus id porttitor dignissim, sem risus sollicitudin turpis, a rhoncus diam arcu non quam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras fringilla sollicitudin metus et mattis. Sed blandit egestas ante, nec accumsan lectus sollicitudin ac.</p>
-								<p>Donec eget tellus eget quam facilisis egestas. Maecenas molestie turpis at tincidunt commodo. Aenean et sapien in lacus sagittis elementum a nec. Nunc at tristique erat. Vestibulum at augue id ante placerat porta ut sit amet mi. Phasellus venenatis odio nec massa dictum, et bibendum justo iaculis. Sed lobortis diam et massa vestibulum, id sagittis purus malesuada. Nullam aliquam feugiat nisi. Aliquam semper, lectus id porttitor dignissim, sem risus sollicitudin turpis, a rhoncus diam arcu non quam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras fringilla sollicitudin metus et mattis. Sed blandit egestas ante, nec accumsan lectus sollicitudin ac.</p> -->										
+								</div>										
 							</div>
 						</div>
 						{{ end }}

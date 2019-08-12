@@ -78,7 +78,7 @@
 						<section class="widget-home-info">
 							<h3 class="h3 header-sidebar">{{.Title}}</h3>
 							<div class="home-content">
-								{{htmlString .Richtext}}
+								<p>{{ htmlString .Richtext}}</p>
 								<ul class="list list-check">
 									{{ range $facility :=  .List }}
 									<li>{{ $facility }}</li>
@@ -102,7 +102,8 @@
 										<a href="/room/{{.Slug}}">{{.Title}}</a>
 									</h3>
 									<p class="media-content">
-										{{ printf "%.500s" $room.Details }} ...
+										{{ $details := removeDiv $room.Details }}
+										{{ printf "%.500s" $details }} ...
 										<a href="/room/{{.Slug}}" class="text-link link-direct">see more</a>
 									</p>
 								</section>

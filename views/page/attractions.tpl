@@ -29,7 +29,7 @@
 									
 									<h3 class="h4"><a href="blog-detail.html">{{ $a.Title }}</a></h3>
 								</header>
-								<p class="media-content">{{ $a.Body }}</p>
+								<p class="media-content">{{ htmlString $a.Body }}</p>
 								
 							</div>
 						</article>

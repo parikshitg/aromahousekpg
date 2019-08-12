@@ -86,7 +86,8 @@
 								</figure>
 								<section class="media-body">
 									<h3 class="media-header h4"><a href="/room/{{$room.Slug}}">{{$room.Title}}</a></h3>
-									<p class="media-content">{{ printf "%.300s" $room.Details }} ... </p>
+									{{ $details := htmlString $room.Details }}
+									<p class="media-content">{{ printf "%.500s" $details }} ... </p>
 									<a class="btn btn-small btn-border btn-border-brown" href="/room/{{$room.Slug}}">See Detail</a>
 								</section>
 							</article>

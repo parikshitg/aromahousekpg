@@ -43,6 +43,7 @@ func main() {
 	go cloudcms.Run(cmsport)
 
 	beego.AddFuncMap("htmlString", views.HTMLString)
+	beego.AddFuncMap("removeDiv", views.RemoveDiv)
 	beego.AddFuncMap("splitString", strings.Split)
 	beego.AddFuncMap("isEven", views.IsEven)
 	beego.AddFuncMap("isOdd", views.IsOdd)
