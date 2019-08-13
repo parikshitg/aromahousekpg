@@ -15,10 +15,10 @@ func init() {
 	beego.Router("/packages", &controllers.PackageController{})
 	beego.Router("/blog/?:slug", &controllers.BlogController{})
 	beego.Router("/gallery", &controllers.GalleryController{})
-	beego.Router("/testimonial", &controllers.TestimonialController{})
+	beego.Router("/testimonials", &controllers.TestimonialController{})
 	beego.Router("/contact", &controllers.ContactController{})
 	beego.Router("/attractions", &controllers.AttractionController{})
-	beego.Router("/activity", &controllers.ActivityController{})
+	beego.Router("/activities", &controllers.ActivityController{})
 	beego.Router("/placeholder/:size([0-9]+x[0-9]+).png", &controllers.PlaceholderController{})
 
 	// beego.ErrorController(&controllers.ErrorController{})
