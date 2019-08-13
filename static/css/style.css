@@ -1692,7 +1692,7 @@ select option.option-test:hover {background-color: #F00;}
 .list-relate h4 > a:hover {color: #a29061;}
 .list-relate > li {margin-bottom: 25px;}
 .time {
-    font-size: 13px;
+    font-size: 14px;
     color: #666;
     font-family: "open Sans";
     line-height: 20px;
@@ -1765,7 +1765,7 @@ select option.option-test:hover {background-color: #F00;}
 .md-blog .list-article .pull-left {width: 39.7727%; margin-right: 3.4%;}
 .md-blog .list-article .media-body {width: 56.8182%;}
 .media-body > .media-header {margin-bottom: 9px;}
-    .media-header .meta-header {margin-bottom: 8px; margin-top:-8px;}
+    .media-header .meta-header {margin-bottom: 8px; margin-top:-4px;}
     .media-header .h4 > a {line-height: 26px; color: #242424;}
     .media-header .h4 > a:hover {color: #A29061;}
 .md-blog .media-body > .media-content {margin-bottom: 7px; line-height: 22px;}

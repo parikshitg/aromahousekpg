@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"strings"
+	"time"
 )
 
 // HTMLString renders HTML from string
@@ -46,4 +47,16 @@ func Image(url string, width, height int) string {
 		return url
 	}
 	return fmt.Sprintf("/placeholder/%dx%d.png", width, height)
+}
+
+func Day(tm time.Time) int {
+	return tm.Day()
+}
+
+func Month(tm time.Time) string {
+	return fmt.Sprint(tm.Format("January"))
+}
+
+func Year(tm time.Time) int {
+	return tm.Year()
 }

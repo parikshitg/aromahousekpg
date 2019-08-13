@@ -2,14 +2,6 @@
 
 {{ define "title" }} Blogs -  {{ end }}
 
-{{ define "description" }} 
-About Aroma House 
-{{ end }}
-
-{{ define "keywords" }}
-Restaurant, Hotel, Homestay, Lodge, Guest House.
-{{ end }}
-
 {{ define "contents" }}
 	<!-- Body -->
 	<div class="md-body-wrapper">
@@ -31,17 +23,18 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 						<article class="media">
 							<!-- <h2>tranhieu</h2> -->
 							<figure class="pull-left">
-								<img src="{{ image $post.Image.URI 349 194 }}" alt="" class="media-object">
+								<a href="/blog/{{$post.Slug}}"><img src="{{ image $post.Image.URI 349 194 }}" alt="" class="media-object"></a>
 							</figure>
 							<div class="media-body">
 								<header class="media-header">
 									<div class="meta-header">
-										<span class="time">{{ $post.Date }}</span>
+										<span class="time">{{ month $post.Date }} {{ day $post.Date }}, {{ year $post.Date }} </span>
 										<span class="meta-divider">|</span>
 										<p class="tags-post">
-											Tag:
-											<a href="#" class="tag-post">Toutrism</a>,
-											<a href="#" class="tag-post">Photography</a>
+											Tags:
+											{{ range $i, $tag := .Tags -}}
+											<a href="#" class="tag-post">{{ if gt $i 0 }}, {{ end }}{{ $tag }}</a>
+											{{- end }}
 										</p>
 									</div>
 									<h3 class="h4"><a href="/blog/{{$post.Slug}}">{{ $post.Title }}</a></h3>
@@ -68,7 +61,7 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 							<section class="post-body">
 								<div class="media">
 									<header class="post-header">
-										<span class="time">{{.Date}}</span>
+										<span class="time">{{ month .Date }} {{ day .Date }}, {{ year .Date }} </span>
 										<h2 class="h2">{{.Title}}</h2>
 									</header>
 									<figure>
@@ -82,19 +75,13 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 							<footer class="post-footer clearfix">
 								<div class="footer-left">
 									<p class="author-post">
-										Post by: <span>{{.Author}}</span>
-									</p>
-									<p class="meta-post">
-										<span class="meta-divider">|</span>
-										<span class="meta-view"><i class="icon icon-view"></i>125</span>
-										<span class="meta-divider">//</span>
-										<span class="meta-comment"><i class="icon icon-comment"></i>12</span>
-										<span class="meta-divider">|</span>
+										Author: <span>{{.Author}}</span>
 									</p>
 									<p class="tags-post">
-										Tag:
-										<a href="#" class="tag-post">Toutrism</a>,
-										<a href="#" class="tag-post">Photography</a>
+										Tags:
+										{{ range $i, $tag := .Tags -}}
+										<a href="#" class="tag-post">{{ if gt $i 0 }}, {{ end }}{{ $tag }}</a>
+										{{- end }}
 									</p>
 								</div>
 								<div class="footer-right">
@@ -118,35 +105,6 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 							<li><a href="#">Leo nibh gravida velit</a></li>
 							<li><a href="#">Tortor augue a eros</a></li>
 							<li><a href="#">libero</a></li>
-						</ul>
-					</section>
-					<section class="box-sidebar">
-						<h3 class="h3 header-sidebar">Related posts</h3>
-						<ul class="list-relate">
-							<li>
-								<h4 class="h6"><a href="#">Aliquam nibh sapien, feugiat id mollis quis</a></h4>
-								<p class="meta">
-									<span class="meta-view"><i class="icon icon-view"></i>125</span>
-									<span class="meta-divider">//</span>
-									<span class="meta-comment"><i class="icon icon-comment"></i>12</span>
-								</p>
-							</li>
-							<li>
-								<h4 class="h6"><a href="#">Fusce adipiscing laoreet augue a posuere</a></h4>
-								<p class="meta">
-									<span class="meta-view"><i class="icon icon-view"></i>15</span>
-									<span class="meta-divider">//</span>
-									<span class="meta-comment"><i class="icon icon-comment"></i>12</span>
-								</p>
-							</li>
-							<li>
-								<h4 class="h6"><a href="#">accumsan vitae lectus. Duis id varius magna</a></h4>
-								<p class="meta">
-									<span class="meta-view"><i class="icon icon-view"></i>125</span>
-									<span class="meta-divider">//</span>
-									<span class="meta-comment"><i class="icon icon-comment"></i>12</span>
-								</p>
-							</li>
 						</ul>
 					</section>
 					<section class="box-sidebar">
@@ -219,16 +177,6 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 							<li><a href="#">tristique tempus </a></li>
 							<li><a href="#">laoreet in</a></li>
 							<li><a href="#">pharetra</a></li>
-						</ul>
-					</section>
-					<section class="box-sidebar">
-						<h3 class="h3 header-sidebar">archives</h3>
-						<ul class="list list-triangle list-uppercase">
-							<li><a href="#">June 2013</a></li>
-							<li><a href="#">May 2013</a></li>
-							<li><a href="#">April 2013</a></li>
-							<li><a href="#">March 2013</a></li>
-							<li><a href="#">February 2013</a></li>
 						</ul>
 					</section>
 				</aside><!-- /.md-sidebar -->

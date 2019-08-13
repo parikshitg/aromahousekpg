@@ -48,5 +48,8 @@ func main() {
 	beego.AddFuncMap("firstChar", views.FirstChar)
 	beego.AddFuncMap("image", views.Image)
 	beego.AddFuncMap("getenv", os.Getenv)
+	beego.AddFuncMap("day", views.Day)
+	beego.AddFuncMap("month", views.Month)
+	beego.AddFuncMap("year", views.Year)
 	beego.Run()
 }
