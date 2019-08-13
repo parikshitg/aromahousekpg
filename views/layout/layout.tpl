@@ -102,6 +102,5 @@
 <!-- End Matomo Code -->
 {{ end }}
 
-
 </body>
 </html>

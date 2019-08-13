@@ -45,11 +45,26 @@
 					
 					<div class="preview-content">
 						<p>{{ htmlString .Details }}</p>
+						<ul class="list list-check">
+							{{ range $facility :=  .Facilities }}
+							<li>{{ $facility }}</li>
+							{{ end }}
+						</ul>
+
 					</div>
 
 					<!-- Md booking -->
 					<section class="md-booking">
-						<h3 class="h3">Book Deluxe room only from <span class="number number-big">₹ <span class="one-night">/ Night</span></span></h3>
+						<h3 class="h">Book {{.Title}} from only <span class="number number-big">₹ {{ .EPCharges }}<span class="one-night">/ Night</span></span></h3>
+						<br>
+						<p>European Plan (Room only): {{.EPCharges}}</p>
+						<p>Continental Plan (Breakfast included): {{.CPCharges}}</p>
+						<p>American Plan (Breakfast + Lunch + Dinner): {{.APCharges}}</p>
+						<p>Modified American Plan (Breakfast + Lunch/Dinner): {{.MAPCharges}}</p>
+						<br>
+						
+						<strong>{{ if .Discount }}Discount: {{ .Discount }}{{ end }}</strong>
+
 						<div class="box-booking booking-inline">
 							<form>
 								<div class="form-group">

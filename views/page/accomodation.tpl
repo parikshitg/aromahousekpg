@@ -88,6 +88,8 @@
 									<h3 class="media-header h4"><a href="/room/{{$room.Slug}}">{{$room.Title}}</a></h3>
 									{{ $details := htmlString $room.Details }}
 									<p class="media-content">{{ printf "%.500s" $details }} ... </p>
+									<h3 class="h3">Price : <span class="number number-big">₹ {{ .EPCharges }}<span class="one-night">/ Night</span></span></h3>
+									<br>
 									<a class="btn btn-small btn-border btn-border-brown" href="/room/{{$room.Slug}}">See Detail</a>
 								</section>
 							</article>
