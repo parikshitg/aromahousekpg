@@ -21,7 +21,7 @@ type Gallery struct {
 func init() {
 	item.Types[strings.ToLower("Gallery")] = func() interface{} { return new(Gallery) }
 	item.Fields[strings.ToLower("Gallery")] = append(item.HeaderFields, []item.Field{
-		{Name: "Title", Heading: "Guest", Widget: item.WidgetInput, Helptext: "Image Title", UseForSlug: true},
+		{Name: "Title", Heading: "Title", Widget: item.WidgetInput, Helptext: "Image Title", UseForSlug: true},
 		{Name: "Text", Widget: item.WidgetTextarea, Helptext: "Enter the Text here"},
 		{Name: "file:Image", Widget: item.WidgetFile, Helptext: "Select Image", FileType: item.FileImageType},
 	}...)

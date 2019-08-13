@@ -11,7 +11,7 @@
 				{{ if eq $i 0 }}
 				<article class="media media-center">
 					<figure>
-						<a href="room-detail.html"><img src="http://placeholder.mac/800x600.png" alt="" class="media-object" width="380" height="auto"></a>
+						<a href="{{$pic.Image.URI}}"><img src="{{ image $pic.Image.URI 400 300 }}" alt="" class="media-object" width="380" height="auto"></a>
 					</figure>
 					<div class="media-body">
 						<h3 class="media-header h4"> {{$pic.Title}}</h3>
@@ -39,7 +39,7 @@
 				{{ if eq $i 1 }}
 				<article class="media media-center">
 					<figure>
-						<a href="room-detail.html"><img src="/images/paragliding2.jpg" alt="" class="media-object" width="380" height="auto"></a>
+						<a href="{{$pic.Image.URI}}"><img src="{{ image $pic.Image.URI 400 300 }}" alt="" class="media-object" width="380" height="auto"></a>
 					</figure>
 					<div class="media-body">
 						<h3 class="media-header h4"> {{$pic.Title}}</h3>
@@ -54,7 +54,7 @@
 				{{ if gt $i 1 }}
 				<article class="media media-center">
 					<figure>
-						<a href="room-detail.html"><img src="/images/paragliding2.jpg" alt="" class="media-object" width="380" height="auto"></a>
+						<a href="{{$pic.Image.URI}}"><img src="{{ image $pic.Image.URI 400 300 }}" alt="" class="media-object" width="380" height="auto"></a>
 					</figure>
 					<div class="media-body">
 						<h3 class="media-header h4"> {{$pic.Title}}</h3>

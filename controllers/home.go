@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"math/rand"
+
 	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
 )
@@ -17,6 +19,11 @@ func (c *HomeController) Get() {
 	c.Data["Sidebar"] = content.GetPage("en", "why-aroma-house")
 
 	c.Data["Rooms"], _, _ = content.RoomList("en", "weight", -1, 0)
+
+	testimonials, count, _ := content.TestimonialList("en", "", -1, 0)
+	if count > 0 {
+		c.Data["Testimonial"] = testimonials[rand.Intn(count)]
+	}
 
 	page := content.GetPage("en", "home")
 	meta := make(map[string]string)

@@ -1,14 +1,6 @@
 {{ template "layout/layout.tpl" . }}
 
-{{ define "title" }} Guestbook - {{ end }}
-
-{{ define "description" }} 
-About Aroma House 
-{{ end }}
-
-{{ define "keywords" }}
-Restaurant, Hotel, Homestay, Lodge, Guest House.
-{{ end }}
+{{ define "title" }} Testimonials - {{ end }}
 
 {{ define "contents" }}
 
@@ -27,9 +19,9 @@ Restaurant, Hotel, Homestay, Lodge, Guest House.
 
 				{{ range $t := .Testimonials }}
 				<div class="media">
-					<a href="#" class="pull-left">
-						<img class="media-object" src="http://placeholder.mac/80.png" alt="avatar">
-					</a>
+					<div class="pull-left">
+						<img class="media-object" src="{{ image $t.Image.URI 80 80 }}" alt="avatar">
+					</div>
 					<div class="media-body">
 						<div class="box-quote box-quote-alter">
 							<p>{{$t.Text}}</p>

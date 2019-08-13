@@ -20,5 +20,4 @@ func (c *TestimonialController) Get() {
 	meta["description"] = page.MetaDescription
 	c.Data["Meta"] = meta
 
-	Debug(c.Data["Testimonials"])
 }

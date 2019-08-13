@@ -72,9 +72,8 @@
 			</section>
 			<section class="row md-home-body">
 				<div class="container clearfix">
-
-					{{ with .Sidebar }}
 					<aside class="grid_3 md-sidebar">
+						{{ with .Sidebar }}
 						<section class="widget-home-info">
 							<h3 class="h3 header-sidebar">{{.Title}}</h3>
 							<div class="home-content">
@@ -86,8 +85,17 @@
 								</ul>
 							</div>
 						</section>
+						{{ end }}
+
+						{{ with .Testimonial }}
+						<section class="widget-quote">
+							<div class="box-quote">
+								<p>{{.Text}}</p>
+							    <a href="#" class="text-link link-direct">{{.Title}}</a>
+						    </div>
+						</section>
+						{{ end }}
 					</aside><!-- /.md-sidebar -->
-					{{ end }}
 
 					<div class="grid_9 md-primary">
 

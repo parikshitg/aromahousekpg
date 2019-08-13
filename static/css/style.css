@@ -1308,7 +1308,7 @@ select option.option-test:hover {background-color: #F00;}
     margin-bottom: 9px;
 }
 .box-quote-alter > p {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 22px;
     text-transform: none;    
 }
@@ -1336,7 +1336,7 @@ select option.option-test:hover {background-color: #F00;}
 }
 .text-link:hover {color: #242424;}
 .link-direct {
-    font-size: 13px;
+    font-size: 16px;
     font-style: italic;
     font-family: 'Open Sans';
     line-height: 25px;
