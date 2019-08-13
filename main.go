@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"strings"
 
 	cloudcms "git.urantiatech.com/cloudcms/lightcms"
@@ -46,5 +47,6 @@ func main() {
 	beego.AddFuncMap("isOdd", views.IsOdd)
 	beego.AddFuncMap("firstChar", views.FirstChar)
 	beego.AddFuncMap("image", views.Image)
+	beego.AddFuncMap("getenv", os.Getenv)
 	beego.Run()
 }
