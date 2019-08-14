@@ -80,8 +80,8 @@
 				<div class="address-wrap clearfix">
 					<div class="address-info">
 						<ul>
-							<li><i class="icon icon-map-white"></i>Delo Road, Dr. Grahams Homes Block B, Kalimpong, WB - 734301</li>
-							<li><i class="icon icon-phone"></i>+91 76020 29626</li>
+							<li><i class="icon icon-map-white"></i>Delo Road, Dr. Grahams Homes Block B, Eco Village (Thapa Tar) Kalimpong, WB - 734301</li>
+							<li><i class="icon icon-phone"></i>+91 76020 29626, 81165 65902</li>
 							<li><i class="icon icon-mail"></i>contact@aromahousekpg.com</li>
 						</ul>
 					</div>

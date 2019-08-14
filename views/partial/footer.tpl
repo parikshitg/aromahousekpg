@@ -8,7 +8,7 @@
 					<div class="footer-content">
 						<address>
 							<p>Delo Road, Dr. Grahams Homes </p>
-							<p>Block B , Kalimpong, WB 734301</p>
+							<p>Block B, Eco Village (Thapa Tar), Kalimpong, WB 734301</p>
 						</address>
 						<p> <a href="#" class="website">© AromaHouseKpg.com</a></p>
 					</div>
