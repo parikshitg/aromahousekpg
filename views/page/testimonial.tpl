@@ -12,7 +12,7 @@
 						T
 						<div class="decription-override">
 							<h2 class="h1">Testimonials</h2>
-							<p>Etiam acondimentum</p>
+							<p>Guest Reviews</p>
 						</div>
 					</header>
 				</div>
@@ -25,7 +25,7 @@
 					<div class="media-body">
 						<div class="box-quote box-quote-alter">
 							<p>{{$t.Text}}</p>
-						    <div class="text-link link-direct">{{$t.Title}}</div>
+						    <div class="text-link link-direct">&mdash; {{$t.Title}}</div>
 						</div>
 					</div>
 				</div><!-- /.media -->

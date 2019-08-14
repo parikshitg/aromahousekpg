@@ -39,7 +39,7 @@
 		<div class="grid_12">
 			<div class="footer-social">
 				<div class="social-inner">
-					<p class="align-center" style="padding-top: 10px;"><a href="https://www.urantiatech.com">Designed & Hosted By : UrantiaTech.com</p>
+					<p class="align-center" style="padding-top: 10px;"><a href="https://www.urantiatech.com" target="_blank">Designed & Hosted By : UrantiaTech.com</p>
 				</div>
 			</div>
 		</div>
