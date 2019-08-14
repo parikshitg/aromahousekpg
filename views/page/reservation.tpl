@@ -132,6 +132,23 @@
 									</label>
 								</div>
 							</div>
+
+							{{ if eq .Form "package" }}
+							<label>Package : </label>
+							<div class="form-group">
+								<div class="input-group select-brown">
+									<label class="collapse">
+										<select class="form-select" name="package">
+											<option></option>
+											{{ $package := .Package }}
+											{{ range $p := .Packages }}
+											<option {{if $package }}{{if eq $package $p.Title}}selected{{end}}{{end}}>{{ $p.Title }}</option>
+											{{ end }}
+										</select>
+									</label>
+								</div>
+							</div>
+							{{ else }}
 							<label>Room Type : </label>
 							<div class="form-group">
 								<div class="input-group select-brown">
@@ -148,6 +165,8 @@
 									</label>
 								</div>
 							</div>
+							{{ end }}
+
 						</div>
 					</div>
 					<label>Your Message : </label>

@@ -18,7 +18,7 @@
 						</header>
 					</div>
 					<div class="grid_9">
-						{{ template "partial/check.tpl" . }}
+						{{ template "partial/check-package.tpl" . }}
 					</div>
 				</section>
 
@@ -41,7 +41,11 @@
 											{{ end }}
 										</ul>
 									</div>
-									<a class="btn btn-small btn-border btn-border-brown" href="/reservation">Book Now</a>
+									<form method="post" action="/reservation">
+										<input type="hidden" name="package" value="{{.Title}}">
+										<input type="hidden" name="form" value="package">
+										<button class="btn btn-small btn-border btn-border-brown">Book now</button>
+									</form>
 								</section>
 							</article>
 						</div>

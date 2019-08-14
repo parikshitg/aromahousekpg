@@ -92,7 +92,7 @@
 						<section class="widget-quote">
 							<div class="box-quote">
 								<p>{{.Text}}</p>
-							    <a href="#" class="text-link link-direct">&mdash; {{.Title}}</a>
+							    <div class="text-link link-direct">&mdash; {{.Title}}</div>
 						    </div>
 						</section>
 						{{ end }}
