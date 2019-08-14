@@ -9,8 +9,8 @@
 {{ define "contents" }}
 
 	<div class="container">
-		{{ with .Room }}
 		<div class="md-body md-room-detail clearfix">
+			{{ with .Room }}
 			<div class="grid_9 md-main">
 				<section class="heading-absolute box-sidebar align-center">
 					<header class="box-heading heading-large">
@@ -57,10 +57,10 @@
 					<section class="md-booking">
 						<h3 class="h">Book {{.Title}} from only <span class="number number-big">₹ {{ .EPCharges }}<span class="one-night">/ Night</span></span></h3>
 						<br>
-						<p>European Plan (Room only): {{.EPCharges}}</p>
-						<p>Continental Plan (Breakfast included): {{.CPCharges}}</p>
-						<p>American Plan (Breakfast + Lunch + Dinner): {{.APCharges}}</p>
-						<p>Modified American Plan (Breakfast + Lunch/Dinner): {{.MAPCharges}}</p>
+						<p>European Plan (Room only): ₹ {{.EPCharges}}</p>
+						<p>Continental Plan (Breakfast included): ₹ {{.CPCharges}}</p>
+						<p>American Plan (Breakfast + Lunch + Dinner): ₹ {{.APCharges}}</p>
+						<p>Modified American Plan (Breakfast + Lunch/Dinner): ₹ {{.MAPCharges}}</p>
 						<br>
 						
 						<strong>{{ if .Discount }}Discount: {{ .Discount }}{{ end }}</strong>
@@ -124,18 +124,20 @@
 
 					</section>
 				</div>
-			</div><!-- /.md-main -->
+			</div>
+			{{ end }}
+
 			<aside class="grid_3 md-sidebar md-sidebar-pt">
 				<section class="box-sidebar">
-					<h2 class="h3 header-sidebar">Room Facilities</h2>
-					<ul class="list list-check">
-						{{ range $facility := .Facilities }}
-						<li>{{$facility}}</li>
+					<h2 class="h3 header-sidebar">Room Types</h2>
+					<ul class="list list-triangle">
+						{{ range $room := .Rooms }}
+						<li><a href="/room/{{$room.Slug}}"><h2 class="h3 header-sidebar">{{$room.Title}}</h2></a></li>
 						{{ end }}
 					</ul>
 				</section>
-			</aside><!-- /.md-sidebar -->
-		</div><!-- /.md-testimonail -->
-		{{ end }}
-	</div><!-- /.md-wrapper  -->
+			</aside>
+
+		</div>
+	</div>
 {{ end }}

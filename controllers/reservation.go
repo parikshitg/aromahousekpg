@@ -50,7 +50,7 @@ func (c *ReservationController) Post() {
 		c.Data["Adults"], _ = c.GetInt("adults")
 		c.Data["Childs"], _ = c.GetInt("childs")
 		c.Data["RoomType"] = c.GetString("roomtype")
-		c.Data["SucessMsg"] = "Rooms are available on the requested date, you many now proceed with the booking."
+		c.Data["SuccessMsg"] = "Rooms are available on the requested date, you many now proceed with the booking."
 		return
 	}
 

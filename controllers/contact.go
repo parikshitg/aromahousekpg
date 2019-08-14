@@ -64,6 +64,4 @@ func (c *ContactController) Post() {
 		c.Data["SuccessMsg"] = "Your message has been sent"
 	}
 
-	log.Println(name, email, phone, message)
-
 }

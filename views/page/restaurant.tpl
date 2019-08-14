@@ -97,7 +97,7 @@
 			<aside class="grid_3 md-sidebar md-sidebar-pt">
 				<section class="box-sidebar">
 					<h2 class="h3 header-sidebar"> Menu</h2>
-					<ul class="list list-check">
+					<ul class="list list-triangle">
 						<li><a href="/restaurant">All Items</a></li>
 						{{ range $k, $v := .Categories }}
 						<li><a href="/restaurant/{{$k}}">{{$v}}</a></li>
