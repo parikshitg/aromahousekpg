@@ -66,12 +66,12 @@
 						<strong>{{ if .Discount }}Discount: {{ .Discount }}{{ end }}</strong>
 
 						<div class="box-booking booking-inline">
-							<form>
+							<form method="post" action="/reservation">
 								<div class="form-group">
 									<label class="label-control">Arrival Date</label>
 									<div class="booking-form select-black">
 										<label class="collapse input">
-											<input type="text" id="arrival-date" class="input-control border-black"/>
+											<input type="text" id="arrival-date" name="arrival-date" class="input-control border-black"/>
 										</label>
 									</div>
 								</div>
@@ -79,7 +79,7 @@
 									<label class="label-control">Departure Date</label>
 									<div class="booking-form select-black">
 										<label class="collapse input">
-											<input type="text" id="departure-date" class="input-control border-black"/>
+											<input type="text" id="departure-date" name="departure-date" class="input-control border-black"/>
 										</label>
 									</div>
 								</div>
@@ -87,7 +87,8 @@
 									<label class="label-control">Adults</label>
 									<div class="input-group select-black">
 										<label class="collapse">
-											<select class="form-select">
+											<select class="form-select" name="adults">
+												<option></option>
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -101,7 +102,8 @@
 									<label class="label-control">Children</label>
 									<div class="input-group select-black">
 										<label class="collapse">
-											<select class="form-select">
+											<select class="form-select" name="childs">
+												<option></option>
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -113,10 +115,13 @@
 								</div>
 								<div class="form-group last">
 									<label class="label-control"></label>
-									<a href="#" class="btn btn-large btn-darkbrown">Book now</a>
+									<input type="hidden" name="roomtype" value="{{.RoomType}}">
+									<input type="hidden" name="form" value="check">
+									<button class="btn btn-large btn-darkbrown">Book now</button>
 								</div>
 							</form>
-						</div><!-- /.box-booking -->
+						</div>
+
 					</section>
 				</div>
 			</div><!-- /.md-main -->

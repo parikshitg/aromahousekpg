@@ -19,6 +19,7 @@ func (c *ReservationController) Get() {
 	c.TplName = "page/reservation.tpl"
 
 	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
+	c.Data["Rooms"], _, _ = content.RoomList("en", "", -1, 0)
 
 	c.Data["Adults"] = 0
 	c.Data["Childs"] = 0
@@ -35,6 +36,7 @@ func (c *ReservationController) Post() {
 	form := c.GetString("form")
 	c.Data["Form"] = form
 	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
+	c.Data["Rooms"], _, _ = content.RoomList("en", "", -1, 0)
 
 	if form != "check" && form != "reserve" {
 		c.Get()
@@ -47,6 +49,7 @@ func (c *ReservationController) Post() {
 		c.Data["DepartureDate"] = c.GetString("departure-date")
 		c.Data["Adults"], _ = c.GetInt("adults")
 		c.Data["Childs"], _ = c.GetInt("childs")
+		c.Data["RoomType"] = c.GetString("roomtype")
 		c.Data["SucessMsg"] = "Rooms are available on the requested date, you many now proceed with the booking."
 		return
 	}

@@ -138,20 +138,11 @@
 									<label class="collapse">
 										<select class="form-select" name="roomtype">
 											<option></option>
-											{{ if .RoomType }}
-											<option {{if eq .RoomType "Standard Room"}}selected{{end}}>Standard Room</option>
-											<option {{if eq .RoomType "Attic Room"}}selected{{end}}>Attic Room</option>
-											<option {{if eq .RoomType "Suite Room"}}selected{{end}}>Suite Room</option>
-											<option {{if eq .RoomType "Master Room"}}selected{{end}}>Master Room</option>
-											<option {{if eq .RoomType "Junior Room"}}selected{{end}}>Junior Master</option>
-											<option {{if eq .RoomType "Luxury Room"}}selected{{end}}>Luxury Room</option>
-											{{ else }}
-											<option>Standard Room</option>
-											<option>Attic Room</option>
-											<option>Suite Room</option>
-											<option>Master Room</option>
-											<option>Junior Master</option>
-											<option>Luxury Room</option>
+											{{ $roomtype := .RoomType }}
+											{{ range $room := .Rooms }}
+											{{ if $room.RoomType }}
+											<option {{if $roomtype }}{{if eq $roomtype $room.RoomType}}selected{{end}}{{end}}>{{ $room.RoomType }}</option>
+											{{ end }}
 											{{ end }}
 										</select>
 									</label>
