@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>{{ block "title" . }} {{ end }} Aroma House </title>
+	<title>{{ block "title" . }} {{ end }} Aroma House Kalimpong</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!--  Viewport setting -->
@@ -72,6 +72,9 @@
 <!-- Main Javascript  -->
 <script type="text/javascript" src="/js/script.js"></script>
 
+<!-- Sweet Alert -->
+<script type="text/javascript" src="/js/sweetalert.min.js"></script>
+
 {{ block "js" . }} {{ end }}
 
 <!-- Separate Javascript for each page -->
@@ -82,6 +85,13 @@
 		$("#arrival-date, #departure-date").datepicker({
 		});
 	});
+</script>
+
+<!-- Newsletter form -->
+<script type="text/javascript">
+	function newsletter() {
+		swal("Hello")
+	}
 </script>
 
 {{ if getenv "MATOMO_SITE_ID" }}

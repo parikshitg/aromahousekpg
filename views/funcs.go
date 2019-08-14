@@ -60,3 +60,11 @@ func Month(tm time.Time) string {
 func Year(tm time.Time) int {
 	return tm.Year()
 }
+
+func Numbers(n1, n2 int) []int {
+	var numbers []int
+	for i := n1; i <= n2-n1+1; i++ {
+		numbers = append(numbers, i)
+	}
+	return numbers
+}

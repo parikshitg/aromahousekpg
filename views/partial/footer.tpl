@@ -28,10 +28,12 @@
 				<div class="hotel-news">
 					<h3>Newsletter</h3>
 					<div class="footer-content">
-						<p>Sign up for our newsletter, and we’ll keep you updated on all events at Flawles!</p>
-						<form>
-							<input type="text"><button type="submit" class="btn btn-brown">Send</button>
-						</form>
+						<p>Sign up for our newsletter, and we’ll keep you updated on all events at Aroma House</p>
+						<br>
+						<div name="newsletter" id="newsletter" action="/">
+							<input type="text" name="email" id="email" placeholder="Email Address">
+							<button class="btn btn-brown" onclick="newsletter();">Send</button>
+						</div>
 					</div>
 				</div>
 			</div>

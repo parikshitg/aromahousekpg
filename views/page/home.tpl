@@ -15,12 +15,12 @@
 					<div class="grid_9">
 						<section class="md-booking">
 							<div class="box-booking booking-inline clearfix">
-								<form>
+								<form method="post" action="/reservation">
 									<div class="form-group">
 										<label class="label-control">Arrival Date</label>
 										<div class="booking-form select-white">
 											<label class="collapse input">
-												<input type="text" id="arrival-date" class="input-control border-white"/>
+												<input type="text" id="arrival-date" name="arrival-date" class="input-control border-white"/>
 											</label>
 										</div>
 									</div>
@@ -28,7 +28,7 @@
 										<label class="label-control">Departure Date</label>
 										<div class="booking-form select-white">
 											<label class="collapse input">
-												<input type="text" id="departure-date" class="input-control border-white"/>
+												<input type="text" id="departure-date" name="departure-date" class="input-control border-white"/>
 											</label>
 										</div>
 									</div>
@@ -36,7 +36,7 @@
 										<label class="label-control">Adults</label>
 										<div class="input-group select-white">
 											<label class="collapse">
-												<select id="form-select" class="form-select">
+												<select name="adults" class="form-select">
 													<option class="option-test">1</option>
 													<option>2</option>
 													<option>3</option>
@@ -50,7 +50,7 @@
 										<label class="label-control">Children</label>
 										<div class="input-group select-white">
 											<label class="collapse">
-												<select class="form-select">
+												<select name="childs" class="form-select">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -62,7 +62,8 @@
 									</div>
 									<div class="form-group last">
 										<label class="label-control"></label>
-										<a href="#" class="btn btn-large btn-darkbrown">Check</a>
+										<input type="hidden" name="form" value="check">
+										<button type="submit" class="btn btn-large btn-darkbrown">Check</button>
 									</div>
 								</form>
 							</div><!-- /.box-booking -->

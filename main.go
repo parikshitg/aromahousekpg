@@ -51,5 +51,7 @@ func main() {
 	beego.AddFuncMap("day", views.Day)
 	beego.AddFuncMap("month", views.Month)
 	beego.AddFuncMap("year", views.Year)
+	beego.AddFuncMap("numbers", views.Numbers)
+
 	beego.Run()
 }

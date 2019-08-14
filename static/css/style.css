@@ -1362,7 +1362,7 @@ select option.option-test:hover {background-color: #F00;}
     padding: 9px 30px 20px 56px;
     margin-bottom: 20px;
 }
-.alert > .alert-body > p {font-size: 13px; line-height: 20px; color: #333;}
+.alert > .alert-body > p {font-size: 16px; line-height: 20px; color: #333;}
 .alert-label {font-family: 'Open Sans'; font-size: 14px; line-height: 36px;}
 .alert-attention    {background-image: url('/images/icon-attention.png'); background-color:#f7eed8; border-color: #f0e2c1;}
 .alert-error        {background-image: url('/images/icon-error.png'); background-color:#fff2ea; border-color: #f2dbdc;}

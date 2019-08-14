@@ -14,8 +14,6 @@ func (c *GalleryController) Get() {
 
 	c.Data["Gallery"], _, _ = content.GalleryList("en", "", -1, 0)
 
-	Debug(c.Data["Gallery"])
-
 	page := content.GetPage("en", "gallery")
 	meta := make(map[string]string)
 	meta["keywords"] = page.MetaKeywords
