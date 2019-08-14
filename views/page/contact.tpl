@@ -2,14 +2,6 @@
 
 {{ define "title" }} Contact - {{ end }}
 
-{{ define "description" }} 
-About Aroma House 
-{{ end }}
-
-{{ define "keywords" }}
-Restaurant, Hotel, Homestay, Lodge, Guest House.
-{{ end }}
-
 {{ define "css" }} 
 <link rel="stylesheet" type="text/css" href="/css/libs/magnific-popup.css">
 <style>

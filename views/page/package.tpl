@@ -2,14 +2,6 @@
 
 {{ define "title" }} Packages - {{ end }}
 
-{{ define "description" }} 
-About Aroma House 
-{{ end }}
-
-{{ define "keywords" }}
-Restaurant, Hotel, Homestay, Lodge, Guest House.
-{{ end }}
-
 {{ define "contents" }}
 	<!-- Body -->
 	<div class="md-body-wrapper">

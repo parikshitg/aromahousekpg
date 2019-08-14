@@ -2,8 +2,6 @@
 
 {{ define "title" }} Restaurant - {{ end }}
 
-
-
 {{ define "contents" }}
 
 	<div class="container">
