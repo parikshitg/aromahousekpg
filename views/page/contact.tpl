@@ -5,71 +5,96 @@
 {{ define "css" }} 
 <link rel="stylesheet" type="text/css" href="/css/libs/magnific-popup.css">
 <style>
-		#map_canvas {
-	        /*width: 500px;*/
-	        height: 820px;
-	      }
-
-	</style>
+	#map_canvas {
+        /*width: 500px;*/
+        height: 820px;
+      }
+</style>
 {{ end }}
 
 {{ define "contents" }}
-	{{ with .Contact }}
-		<section class="md-contact">
-			<figure class="bg-contact">
-				<img src="{{ image .Image.URI 1560 814 }}" alt="">
-				<div class="bg-pattern"></div>
-			</figure>
-			<div class="contact-wrap">
-				<div class="layout-left">
-					<header class="box-heading heading-large">
-						C
-						<div class="decription-override">
-							<h2 class="h1">{{ .Title }}</h2>
-							<p> {{ .Subtitle }} </p>
-						</div>
-					</header>
-					<p id="contact-content" class="description">{{ .Richtext }}</p>
-					<div class="row form-contact">
-						<form  class="label-placeholder" action="/contact" method="POST">
-							<div class="row clearfix">
-								<div class="form-group">
-									<input  type="text" name="name" class="input-control" placeholder="Name">
-								</div>
-								<div class="form-group">
-									<input  type="text" name="email" class="input-control" placeholder="Email">
-								</div>
-								<div class="form-group">
-									<input  type="text" name="phone" class="input-control" placeholder="Phone no.">
-								</div>
-							</div>
-							<div class="form-group">
-								<textarea    class="input-control" placeholder="Your message" name="message"></textarea>
-							</div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-alter btn-border btn-border-brown" >Submit</button>
-							</div>
-						</form>
-					</div><!-- /.form-contact -->
-					<div class="address-wrap clearfix">
-						<div class="address-info">
-							<ul>
-								<li><i class="icon icon-map-white"></i>Delo Road, Dr. Grahams Homes Block B, Kalimpong, WB - 734301</li>
-								<li><i class="icon icon-phone"></i>+91 76020 29626</li>
-								<li><i class="icon icon-mail"></i>contact@aromahousekpg.com</li>
-							</ul>
-						</div>
-						<div class="address-map">
-							<div>
-								<i class="icon icon-map-brown"></i>
-								<a class="popup-gmaps" href="https://www.google.com/maps/place/Kalimpong+Broadband/@27.0880823,88.520325,17z/data=!3m1!4b1!4m5!3m4!1s0x39e41fbc62137019:0x31d0560042ad0f95!8m2!3d27.0880775!4d88.5225137">See Map</a>
-							</div> 
-						</div>
-					</div><!-- /.address-wrap -->
+
+	<section class="md-contact">
+		<figure class="bg-contact">
+				{{ with .Contact }}
+				<img src="{{ image .Image.URI 1560 880 }}" alt="">
+				{{ end }}
+			<div class="bg-pattern"></div>
+		</figure>
+		
+		<div class="contact-wrap">
+			<div class="layout-left">
+				{{ with .Contact }}
+				<header class="box-heading heading-large">
+					C
+					<div class="decription-override">
+						<h2 class="h1">Contact</h2>
+						<p> {{ .Subtitle }} </p>
+					</div>
+				</header>
+				{{ end }}
+
+				{{ if .ErrorMsg }}
+				<div class="alert alert-error">
+					<p class="alert-body">{{.ErrorMsg}}</p>
 				</div>
+				{{ else if .SuccessMsg }}
+				<div class="alert alert-success">
+					<p class="alert-body">{{.SuccessMsg}}</p>
+				</div>
+				{{ else if .GeneralMsg }}
+				<div class="alert alert-general">
+					<p class="alert-body">{{.GeneralMsg}}</p>
+				</div>
+				{{ else }}
+					{{ with .Contact }}
+					<p id="contact-content" class="description">{{ htmlString .Richtext }}</p>
+					{{ end }}
+				{{ end }}
+
+				<div class="row form-contact">
+					<form  class="label-placeholder" action="/contact" method="POST">
+						<div class="row clearfix">
+							<div class="form-group">
+								<input  type="text" name="name" class="input-control" placeholder="Name"
+									value="{{with .Name}}{{.}}{{end}}">
+							</div>
+							<div class="form-group">
+								<input  type="text" name="email" class="input-control" placeholder="Email"
+									value="{{with .Email }}{{.}}{{end}}">
+							</div>
+							<div class="form-group">
+								<input  type="text" name="phone" class="input-control" placeholder="Phone no."
+									value="{{with .Phone }}{{.}}{{end}}">
+							</div>
+						</div>
+						<div class="form-group">
+							<textarea class="input-control" placeholder="Your message" name="message">{{with .Message}}{{.}}{{end}}</textarea>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-alter btn-border btn-border-brown" >Submit</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="address-wrap clearfix">
+					<div class="address-info">
+						<ul>
+							<li><i class="icon icon-map-white"></i>Delo Road, Dr. Grahams Homes Block B, Kalimpong, WB - 734301</li>
+							<li><i class="icon icon-phone"></i>+91 76020 29626</li>
+							<li><i class="icon icon-mail"></i>contact@aromahousekpg.com</li>
+						</ul>
+					</div>
+					<div class="address-map">
+						<div>
+							<i class="icon icon-map-brown"></i>
+							<a class="popup-gmaps" href="https://www.google.com/maps/place/Kalimpong+Broadband/@27.0880823,88.520325,17z/data=!3m1!4b1!4m5!3m4!1s0x39e41fbc62137019:0x31d0560042ad0f95!8m2!3d27.0880775!4d88.5225137">See Map</a>
+						</div> 
+					</div>
+				</div><!-- /.address-wrap -->
 			</div>
-		</section><!-- /.md-wrapper  -->
-	{{ end }}
+		</div>
+	</section><!-- /.md-wrapper  -->
 
 {{ end }}
 

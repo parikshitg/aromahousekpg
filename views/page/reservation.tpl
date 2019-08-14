@@ -48,7 +48,7 @@
 				<div class="alert alert-general">
 					<p class="alert-body">{{.}}</p>
 				</div>
-				{{ end }}				
+				{{ end }}
 
 				<header class="box-heading">
 					<h3 class="head headborder">Instant Booking</h3>

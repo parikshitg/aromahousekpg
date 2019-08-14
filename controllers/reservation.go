@@ -84,7 +84,7 @@ func (c *ReservationController) Post() {
 		To:      "Aroma House <contact@aromahousekpg.com>",
 		ReplyTo: fmt.Sprintf("%s <%s>", name, email),
 		Subject: subject,
-		HTML:    strings.Replace(message, "\n", "<br/>", -1),
+		HTML:    strings.Replace(body, "\n", "<br/>", -1),
 	}
 
 	err := mailapi.SendMail(&mail, os.Getenv("MAIL_SVC"))
