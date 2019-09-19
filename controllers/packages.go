@@ -13,6 +13,8 @@ func (c *PackageController) Get() {
 	c.TplName = "page/package.tpl"
 
 	c.Data["Packages"], _, _ = content.PackageList("en", "", -1, 0)
+	c.Data["Activities"], _, _ = content.ActivityList("en", "", -1, 0)
+	c.Data["Attractions"], _, _ = content.AttractionList("en", "", -1, 0)
 
 	page := content.GetPage("en", "packages")
 	meta := make(map[string]string)

@@ -4,41 +4,29 @@
 
 {{ define "contents" }}
 
-<!-- Body -->
 	<div class="md-body-wrapper">
-		<section class="container">
-			<div class="md-body md-accomodation">
-				<section class="row md-accomodation-available clearfix">
-					<div class="grid_3 align-center">
+		<div class="container">
+			<div class="md-body md-blog clearfix">
+				<div class="grid_9 md-main">
+					<section class="heading-absolute box-sidebar align-center">
 						<header class="box-heading heading-large">
 							P
 							<div class="decription-override">
-								<h1 class="h1">Packages</h1>
-								<p>All Inclusive Deals</p>
+								<h2 class="h1">Packages</h2>	
+								<p> All inclusive packages</p>
 							</div>
 						</header>
-					</div>
-					<div class="grid_9">
-						{{ template "partial/check-package.tpl" . }}
-					</div>
-				</section>
+					</section>
 
-				<section class="md-accomodation-content">
-					<div class="row clearfix">
-						{{ range $package := .Packages}}
-
-
-
-						<!--div class="grid_4">
-							<article class="media">
-								<!--figure>
-									<img src="{{ image $package.Image.URI 370 230 }}" alt="" class="media-object">
-								</figure-->
-								<section class="media-body">
-									<h2 class="media-header h3">{{$package.Title}}</h2>
+					<div class="">
+						{{ range $package := .Packages }}
+						<article class="">
+							<div class="media-body">
+									<h2 class="h2">{{$package.Title}}</h2>
+									<br>
 									<p class="media-content"> {{htmlString $package.Details}} </p>
 									<br>
-									<div class="grid_12">
+									<div>
 										<ul class="list list-check">
 											{{ range $l := .List }}
 											<li>{{ $l }}</li>
@@ -50,27 +38,41 @@
 										<input type="hidden" name="form" value="package">
 										<button class="btn btn-small btn-border btn-border-brown">Book now</button>
 									</form>
-								</section>
-							</article>
-						</div-->
+							</div>
+						</article>
 
 						<br>
 						<br>
 						<br>
-
+						
 						{{ end }}
 					</div>
-				</section>
-			</div><!-- /.md-accomodation -->
-		</section><!-- /.md-wrapper  -->
+
+				</div>
+
+				<aside class="grid_3 md-sidebar md-sidebar-pt">
+
+					<section class="box-sidebar">
+						<h3 class="h3 header-sidebar">Attractions </h3>
+						<ul class="list list-triangle list-uppercase">
+							{{ range $attraction := .Attractions }}
+							<li><a href="/attractions">{{$attraction.Title}}</a></li>
+							{{ end }}
+						</ul>
+					</section>
+
+					<section class="box-sidebar">
+						<h3 class="h3 header-sidebar">Activities </h3>
+						<ul class="list list-triangle list-uppercase">
+							{{ range $activity := .Activities }}
+							<li><a href="/activities">{{$activity.Title}}</a></li>
+							{{ end }}
+						</ul>
+					</section>
+
+				</aside><!-- /.md-sidebar -->
+			</div><!-- /.md-testimonail -->
+		</div>
 	</div>
 
-
-
-
-
-
-
-
-	
 {{ end }}
