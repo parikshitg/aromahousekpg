@@ -88,7 +88,7 @@
 					<div class="address-map">
 						<div>
 							<i class="icon icon-map-brown"></i>
-							<a class="popup-gmaps" href="https://www.google.com/maps/place/Kalimpong+Broadband/@27.0880823,88.520325,17z/data=!3m1!4b1!4m5!3m4!1s0x39e41fbc62137019:0x31d0560042ad0f95!8m2!3d27.0880775!4d88.5225137">See Map</a>
+							<a class="popup-gmaps" href="https://www.google.com/maps/place/AROMAHOUSE/@27.0878533,88.5192908,17z/data=!3m1!4b1!4m5!3m4!1s0x39e41fd159170faf:0x9add0249ff8dcd6a!8m2!3d27.0878533!4d88.5214795">See Map</a>
 						</div> 
 					</div>
 				</div><!-- /.address-wrap -->
