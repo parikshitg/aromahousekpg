@@ -22,7 +22,7 @@
 						{{ range $package := .Packages }}
 						<article class="">
 							<div class="media-body">
-									<h2 class="h2">{{$package.Title}}</h2>
+									<h2 class="h2">{{$package.Title}} ({{.NumNights}} Nights, {{.NumAdults}} Adults{{with .NumChilds}}, {{.}} Childs{{end}})</h2>
 									<br>
 									<p class="media-content"> {{htmlString $package.Details}} </p>
 									<br>
