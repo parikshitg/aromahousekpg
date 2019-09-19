@@ -88,7 +88,9 @@
 					<div class="address-map">
 						<div>
 							<i class="icon icon-map-brown"></i>
+							{{ with .Contact }}
 							<a class="popup-gmaps" href="{{if .Plaintext}}{{.}}{{else}}#{{end}}">See Map</a>
+							{{ end }}
 						</div> 
 					</div>
 				</div><!-- /.address-wrap -->
