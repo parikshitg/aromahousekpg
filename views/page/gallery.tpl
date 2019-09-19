@@ -30,7 +30,7 @@
 						</div>
 					</header>
 					<div class="media-body">
-						<p class="media-content">Mauris egestas, tellus sed venenatis tincidunt, odio diam iaculis augue, nec tincidunt enim odio id arcu. Ut pellentesque, quam ut sagittis adipiscing</p>
+						<p class="media-content"></p>
 					</div>
 				</article>
 

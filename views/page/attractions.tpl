@@ -27,7 +27,7 @@
 							<div class="media-body">
 								<header class="media-header">
 									
-									<h3 class="h4"><a href="blog-detail.html">{{ $a.Title }}</a></h3>
+									<h3 class="h4">{{ $a.Title }}</h3>
 								</header>
 								<p class="media-content">{{ htmlString $a.Body }}</p>
 								
