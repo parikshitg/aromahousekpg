@@ -3,7 +3,8 @@
 {{ define "title" }} Packages - {{ end }}
 
 {{ define "contents" }}
-	<!-- Body -->
+
+<!-- Body -->
 	<div class="md-body-wrapper">
 		<section class="container">
 			<div class="md-body md-accomodation">
@@ -25,13 +26,16 @@
 				<section class="md-accomodation-content">
 					<div class="row clearfix">
 						{{ range $package := .Packages}}
-						<div class="grid_4">
+
+
+
+						<!--div class="grid_4">
 							<article class="media">
-								<figure>
+								<!--figure>
 									<img src="{{ image $package.Image.URI 370 230 }}" alt="" class="media-object">
-								</figure>
+								</figure-->
 								<section class="media-body">
-									<h3 class="media-header h3">{{$package.Title}}</h3>
+									<h2 class="media-header h3">{{$package.Title}}</h2>
 									<p class="media-content"> {{htmlString $package.Details}} </p>
 									<br>
 									<div class="grid_12">
@@ -48,11 +52,25 @@
 									</form>
 								</section>
 							</article>
-						</div>
+						</div-->
+
+						<br>
+						<br>
+						<br>
+
 						{{ end }}
 					</div>
 				</section>
 			</div><!-- /.md-accomodation -->
 		</section><!-- /.md-wrapper  -->
 	</div>
+
+
+
+
+
+
+
+
+	
 {{ end }}
