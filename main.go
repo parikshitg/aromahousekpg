@@ -7,10 +7,10 @@ import (
 
 	cloudcms "git.urantiatech.com/cloudcms/lightcms"
 	s "git.urantiatech.com/cloudcms/lightcms/service"
-	_ "git.urantiatech.com/homestay/aromahousekpg/content"
-	_ "git.urantiatech.com/homestay/aromahousekpg/routers"
-	"git.urantiatech.com/homestay/aromahousekpg/views"
 	"github.com/astaxie/beego"
+	_ "github.com/parikshitg/aromahousekpg/content"
+	_ "github.com/parikshitg/aromahousekpg/routers"
+	"github.com/parikshitg/aromahousekpg/views"
 	"golang.org/x/text/language"
 )
 

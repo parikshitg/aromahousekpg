@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"git.urantiatech.com/homestay/aromahousekpg/controllers"
 	"github.com/astaxie/beego"
+	"github.com/parikshitg/aromahousekpg/controllers"
 )
 
 func init() {

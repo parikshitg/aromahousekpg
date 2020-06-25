@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
+	"github.com/parikshitg/aromahousekpg/content"
 )
 
 type RoomController struct {

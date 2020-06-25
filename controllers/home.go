@@ -3,8 +3,8 @@ package controllers
 import (
 	"math/rand"
 
-	"git.urantiatech.com/homestay/aromahousekpg/content"
 	"github.com/astaxie/beego"
+	"github.com/parikshitg/aromahousekpg/content"
 )
 
 type HomeController struct {

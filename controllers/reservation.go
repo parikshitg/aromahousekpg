@@ -6,9 +6,9 @@ import (
 	"os"
 	"strings"
 
-	"git.urantiatech.com/homestay/aromahousekpg/content"
 	mailapi "git.urantiatech.com/mail/mail/api"
 	"github.com/astaxie/beego"
+	"github.com/parikshitg/aromahousekpg/content"
 )
 
 type ReservationController struct {
